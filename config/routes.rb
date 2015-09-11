@@ -1,8 +1,19 @@
 Rails.application.routes.draw do
+
+  namespace :api do
+    resources :ratings, except: [:new, :edit]
+  end
+
+  get '/ratings/new_rating' => 'api/ratings#create'
+
+  root 'welcome#index'
+
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
   # You can have the root of your site routed with "root"
+
   root 'welcome#index'
   get 'users/log_in' => 'users#log_in', as: :log_in
 

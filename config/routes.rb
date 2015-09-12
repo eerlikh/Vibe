@@ -6,7 +6,6 @@ Rails.application.routes.draw do
 
   get '/ratings/new_rating' => 'api/ratings#create'
 
-  root 'welcome#index'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

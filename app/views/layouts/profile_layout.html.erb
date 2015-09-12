@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Vibe</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+
+  <script type="text/template" id='rating-template'>
+    <h3>
+      <%%= mood %>
+    </h3>
+    <button type="button" class='remove'>
+      Remove
+    </button>
+  </script>
+
+
+</head>
+<body>
+
+  <%= yield %>
+
+  <%= javascript_include_tag 'users', 'data-turbolinks-track' => true %>
+</body>
+</html>

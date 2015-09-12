@@ -1,4 +1,5 @@
 class UsersController < ApplicationController
+  include SessionsHelper
 
 #    users GET    /users(.:format)          users#index
   def index
@@ -22,9 +23,10 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
   end
 
-  #     user GET    /users/:id(.:format)      users#show
-  def show
-    @user = User.find(params[:id])
+  def profile
+    authenticate!
+    @user = current_user
+    render layout: "profile_layout"
   end
 
   #          PATCH  /users/:id(.:format)      users#update
@@ -32,7 +34,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
-    redirect_to user_path(@user)
+    redirect_to user_profile_path
   end
   #          DELETE /users/:id(.:format)      users#destroy
   def destroy

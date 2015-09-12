@@ -11,8 +11,9 @@
 // about supported directives.
 //
 //= require jquery
-//= require jquery_ujs
+//= require underscore
+//= require backbone
+//= require app
 //= require turbolinks
-//= require_tree .
 
-console.log('application manifest');
+console.log('users manifest');

@@ -7,7 +7,6 @@ Rails.application.routes.draw do
   get '/ratings/new_rating' => 'api/ratings#create'
 
 
-
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -16,7 +15,8 @@ Rails.application.routes.draw do
   root 'welcome#index'
   get 'users/log_in' => 'users#log_in', as: :log_in
 
-  resources :users
+  resources :users, except: [:show]
+  get '/users/profile' => 'users#profile', as: :user_profile
 
   post 'sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy', as: :log_out

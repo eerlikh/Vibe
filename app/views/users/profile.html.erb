@@ -1,0 +1,13 @@
+<input type="hidden" id='api-token' value="<%= @user.token %>">
+
+<h1>Hello, <%= @user.first_name %></h1>
+
+<%= button_to 'Log-Out', log_out_path, method: :delete %>
+
+<form class="create-rating" action="/api/ratings" method="post">
+  <input type="text" id="rating-post" name="rating[mood]">
+  <input type="submit" value="Rating">
+</form>
+
+<section id="ratings-list">
+</section>

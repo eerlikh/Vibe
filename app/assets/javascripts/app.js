@@ -1,3 +1,10 @@
+$(document).ready(function() {
+  init();
+})
+
+
+function init() {
+
 console.log('scripts loaded');
 
 var token = $('#api-token').val();
@@ -12,10 +19,10 @@ var Rating = Backbone.Model.extend({});
 //collection
 var RatingCollection = Backbone.Collection.extend({
 model: Rating,
-url: 'api/ratings'
+url: '/api/ratings'
 });
 //views
-<<<<<<< HEAD
+
 var RatingView = Backbone.View.extend({
   tagName: 'div',
   className: 'rating',
@@ -60,13 +67,20 @@ var RatingPainter = new RatingListView({
 });
 ratings.fetch();
 
-
+/*
 $('form.create-rating').on('submit', function(e){
   e.preventDefault();
   var newRating = $(this).find("#rating-post").val();
   ratings.create({mood: newRating});
 });
-=======
+*/
+
+$('.create-rating').on('submit', function(e){
+  e.preventDefault();
+  var data = $(this).serializeJSON();
+  ratings.create(data.rating);
+});
+
 // var RatingView = Backbone.View.extend({
 //   tagName: 'div',
 //   className: 'rating',
@@ -119,4 +133,5 @@ $('form.create-rating').on('submit', function(e){
 //   var newRating = $(this).find("#me-message").val();
 //   chirps.create({message: newMessage});
 // });
->>>>>>> 01aa402b89719d9352b887bf00ea8b4394d88441
+
+}

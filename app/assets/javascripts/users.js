@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.serializejson
 //= require underscore
 //= require backbone
 //= require app

@@ -3,17 +3,32 @@
 <head>
   <title>GroupProject3</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+
+  <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Poiret+One' rel='stylesheet' type='text/css'>
+
 </head>
 <body>
   <div class="container">
-    <div>Vibe</div> <div class="hamburgerMenu"></div>
+
+    <div class='header'>
+      <div class='mainLogo'>Vibe</div>
+      <button class="hamburger">&#9776;</button>
+      <!-- <button class="cross">&#735;</button> -->
+    </div>
+
+    <!-- <div class="menu">
+      <ul>
+        <a href="#"><li>LINK ONE</li></a>
+        <a href="#"><li>LINK TWO</li></a>
+      </ul>
+    </div> -->
+
+    <%= yield %>
+
   </div>
-
-
-
-  <%= yield %>
-
 </body>
 </html>

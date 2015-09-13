@@ -1,12 +1,12 @@
 $(document).ready(function() {
   init();
-})
+});
 
 
 function init() {
 
 console.log('scripts loaded');
-<<<<<<< HEAD
+
 
 var token = $('#api-token').val();
 $.ajaxSetup({
@@ -16,7 +16,13 @@ $.ajaxSetup({
 }
 });
 //model
-var Rating = Backbone.Model.extend({});
+var Rating = Backbone.Model.extend({
+  defaults: {
+    "mood": 5,
+    "comment": "whatevs"
+
+  }
+});
 //collection
 var RatingCollection = Backbone.Collection.extend({
 model: Rating,
@@ -82,7 +88,8 @@ $('.create-rating').on('submit', function(e){
   ratings.create(data.rating);
 });
 
-=======
+}
+
 //
 // var token = $('#api-token').val();
 // $.ajaxSetup({

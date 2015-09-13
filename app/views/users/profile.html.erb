@@ -5,8 +5,9 @@
 <%= button_to 'Log-Out', log_out_path, method: :delete %>
 
 <form class="create-rating" action="/api/ratings" method="post">
-  <input type="text" id="rating-post" name="rating[mood]">
-  <input type="submit" value="Rating">
+  <input type="text" id="rating-post" name="rating[mood]" placeholder="Rating (1-10)">
+  <input type="text" name="rating[comment]" placeholder="Comment...">
+  <input type="submit" value="Add Rating">
 </form>
 
 <section id="ratings-list">

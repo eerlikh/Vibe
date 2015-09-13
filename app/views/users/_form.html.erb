@@ -1,10 +1,17 @@
 <%= form_for @user do |f| %>
-  <%= f.label :username %>
-  <%= f.text_field :username %>
+
   <%= f.label :first_name %>
   <%= f.text_field :first_name %>
   <%= f.label :last_name %>
   <%= f.text_field :last_name %>
+
+  <%= f.label :username %>
+  <%= f.text_field :username %>
+  <%= f.label :password %>
+  <%= f.text_field :password %>
+  <%= f.label :confirm_pw %>
+  <%= f.text_field :password %>
+
   <%= f.label :email %>
   <%= f.text_field :email %>
   <%= f.label :address %>
@@ -13,9 +20,8 @@
   <%= f.text_field :city %>
   <%= f.label :state %>
   <%= f.text_field :state %>
-  <%= f.label :zip %>
+  <%= f.label :zip_code %>
   <%= f.text_field :zip %>
-  <%= f.label :password %>
-  <%= f.text_field :password %>
+
   <%= f.submit %>
 <% end %>

@@ -31,7 +31,7 @@ url: '/api/ratings'
 //views
 
 var RatingView = Backbone.View.extend({
-  tagName: 'div',
+  tagName: 'tr',
   className: 'rating',
   template: _.template( $('#rating-template').html() ),
   render: function(){

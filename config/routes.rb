@@ -1,11 +1,14 @@
 Rails.application.routes.draw do
 
+
+  get 'api/ratings/new_rating' => 'api/ratings#create'
+  get 'api/ratings/map_ratings' => 'api/ratings#map_ratings'
+
   namespace :api do
-    resources :ratings, except: [:new, :edit]
+    resources :ratings, except: [:new, :edit, :show]
   end
 
-  get '/ratings/new_rating' => 'api/ratings#create'
-  get 'ratings/map_ratings' => 'api/ratings#map_ratings'
+
 
 
   # The priority is based upon order of creation: first created -> highest priority.

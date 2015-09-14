@@ -6,6 +6,10 @@ module SessionsHelper
 end
 
 def authenticate!
-  redirect root_path unless current_user
+  unless current_user
+    redirect_to root_path
+    return false
+  end
+  return true
 end
 end

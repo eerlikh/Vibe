@@ -8,8 +8,12 @@ def index
   render json: @current_user.ratings
 end
 
+def map_ratings
+  render json: Rating.all
+end
+
 def create
-  ratings = @current_user.ratings.create(ratings_params)
+  rating = @current_user.ratings.create(ratings_params)
   render json: rating
 end
 
@@ -19,7 +23,7 @@ end
 
 def destroy
   @current_user.ratings.destroy(params[:id])
-  render status: 202
+  head :no_content
 end
 
 private

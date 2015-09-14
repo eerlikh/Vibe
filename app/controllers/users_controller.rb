@@ -3,7 +3,7 @@ class UsersController < ApplicationController
 
 #    users GET    /users(.:format)          users#index
   def index
-    @users = user.all
+    @users = User.all
   end
 
   #          POST   /users(.:format)          users#create
@@ -27,7 +27,6 @@ class UsersController < ApplicationController
     authenticate!
     @user = current_user
     render layout: "profile_layout"
-
   end
 
   #          PATCH  /users/:id(.:format)      users#update
@@ -45,7 +44,13 @@ class UsersController < ApplicationController
   end
 
   def log_in
+  end
 
+  def map_view
+    authenticate!
+    @user = current_user
+    @ratings = Rating.all
+    render layout: "profile_layout"
   end
 
   private

@@ -245,3 +245,7 @@ a:-webkit-any-link {
   width: 200px;
   heigh: 100px;
 }
+
+#map {
+  height: 400px;
+}

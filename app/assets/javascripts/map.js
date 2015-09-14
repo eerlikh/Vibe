@@ -1,9 +1,21 @@
+var lat;
+var lon;
+
+
 $(document).ready(function() {
   init();
 });
 
 function init() {
   console.log('map scripts loaded');
+
+  navigator.geolocation.getCurrentPosition(function(position) {
+    lat = position.coords.latitude;
+    lon = position.coords.longitude;
+
+    myMap.init(lat, lon);
+    myApplication.init();
+  });
 
   var token = $('#api-token').val();
   $.ajaxSetup({
@@ -59,14 +71,6 @@ function init() {
         this.$el.append( view.$el );
       }
     }
-  });
-
-  var lat;
-  var lon;
-
-  navigator.geolocation.getCurrentPosition(function(position) {
-    lat = position.coords.latitude;
-    lon = position.coords.longitude;
   });
 
   // Collection of ALL user's ratings for dispaly on map
@@ -127,15 +131,14 @@ function init() {
 
 var myMap = myMap || {};
 var myApplication =  myApplication || {};
-var lat;
-var lon;
-myMap.init = function() {
+
+myMap.init = function(lat, lon) {
     this.map;
     this.currentLatLng;
-    this.zoom = 6;
+    this.zoom = 14;
     this.mapEl = document.getElementById('map');
 
-    this.currentLatLng = new google.maps.LatLng( 20, -10 );
+    this.currentLatLng = new google.maps.LatLng( lat, lon );
     this.map = new google.maps.Map( this.mapEl, {
         center: this.currentLatLng,
         zoom: this.zoom
@@ -162,8 +165,3 @@ myApplication.init = function() {
   myMap.reCenterMap();
   myMap.updateMarker();
 }
-
-$(document).ready(function() {
-    myMap.init();
-    myApplication.init();
-});

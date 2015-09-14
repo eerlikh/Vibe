@@ -1,10 +1,3 @@
-// $(document).ready(function() {
-//   init();
-// });
-//
-//
-// function init() {
-
 console.log('app scripts loaded');
 
 var token = $('#api-token').val();
@@ -22,12 +15,10 @@ var Rating = Backbone.Model.extend({
     "comment": "whatevs",
     "latitude": 90,
     "longitude": 0
-
   }
 });
 
 //views
-
 var RatingView = Backbone.View.extend({
   tagName: 'tr',
   className: 'rating',
@@ -63,4 +54,25 @@ var RatingListView = Backbone.View.extend({
   }
 });
 
-// }
+
+
+var ratings = new RatingCollection();
+var mapRatings = new MapRatingCollection();
+var RatingPainter = new RatingListView({
+  collection: ratings,
+  el: $('#ratings-list')
+});
+var MapRatingPainter = new RatingListView({
+  collection: mapRatings,
+  el: $('#map-ratings-list')
+});
+ratings.fetch();
+mapRatings.fetch();
+
+
+
+$('.create-rating').on('submit', function(e){
+  e.preventDefault();
+  var data = $(this).serializeJSON();
+  ratings.create(data.rating);
+});

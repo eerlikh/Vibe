@@ -7,6 +7,12 @@
   <%= csrf_meta_tags %>
 
   <script type="text/template" id='rating-template'>
+    <h3>
+      <%%= mood %>
+    </h3>
+    <button type="button" class='remove'>
+      Remove
+    </button> 
       <td><%%= mood %></td>
       <td><%%= comment %></td>
       <td>
@@ -20,7 +26,6 @@
 <body>
 
   <%= yield %>
-
 
 </body>
 </html>

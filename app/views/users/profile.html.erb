@@ -7,6 +7,8 @@
 <form class="create-rating" action="/api/ratings" method="post">
   <input type="text" id="rating-post" name="rating[mood]" placeholder="Rating (1-10)">
   <input type="text" name="rating[comment]" placeholder="Comment...">
+  <input type="hidden" name="rating[latitude]" id="lat">
+  <input type="hidden" name="rating[longitude]" id="lon">
   <input type="submit" value="Add Rating">
 </form>
 

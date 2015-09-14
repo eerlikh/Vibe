@@ -8,6 +8,10 @@ def index
   render json: @current_user.ratings
 end
 
+def map_ratings
+  render json: Rating.all
+end
+
 def create
   rating = @current_user.ratings.create(ratings_params)
   render json: rating

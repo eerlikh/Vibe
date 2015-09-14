@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   end
 
   get '/ratings/new_rating' => 'api/ratings#create'
-  get 'ratings/map_ratings' => 'api/ratings#map_ratings'
+  get '/ratings/map_ratings' => 'api/ratings#map_ratings'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

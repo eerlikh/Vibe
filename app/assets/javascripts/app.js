@@ -6,9 +6,6 @@ $(document).ready(function() {
 function init() {
 
 console.log('scripts loaded');
-<<<<<<< HEAD
-=======
-
 
 navigator.geolocation.getCurrentPosition(function(position) {
   var lat = position.coords.latitude;
@@ -17,7 +14,7 @@ navigator.geolocation.getCurrentPosition(function(position) {
   $('#lon').attr('value', lon);
 });
 
->>>>>>> f8647a04f22e68918ddc3dea43e7ef32ff6d5ef0
+
 
 var token = $('#api-token').val();
 $.ajaxSetup({

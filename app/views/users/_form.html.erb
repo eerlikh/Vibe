@@ -1,7 +1,10 @@
 <%= form_for @user do |f| %>
 
-  <%= f.label :first_name %>
-  <%= f.text_field :first_name %>
+  <%= f.label :first_name, "First name:", class: "col-md-4" %>
+  <%= f.text_field :first_name, class: "test" %>
+
+
+
   <%= f.label :last_name %>
   <%= f.text_field :last_name %>
 

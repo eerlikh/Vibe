@@ -50,7 +50,7 @@ class UsersController < ApplicationController
     authenticate!
     @user = current_user
     @ratings = Rating.all
-    render layout: "profile_layout"
+    render layout: "map_layout"
   end
 
   private

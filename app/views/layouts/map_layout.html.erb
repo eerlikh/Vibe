@@ -3,17 +3,14 @@
 <head>
   <title>Vibe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
-  <%= javascript_include_tag 'pro_manifest', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'map_manifest', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
   <script type="text/template" id='rating-template'>
       <td><%%= mood %></td>
       <td><%%= comment %></td>
-      <td>
-        <button type="button" class='remove'>
-          Remove
-        </button>
-      </td>
+      <td><%%= latitude %></td>
+      <td><%%= longitude %></td>
   </script>
 
 </head>

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   end
 
   get '/ratings/new_rating' => 'api/ratings#create'
+  get 'ratings/map_ratings' => 'api/ratings#map_ratings'
 
 
   # The priority is based upon order of creation: first created -> highest priority.
@@ -13,12 +14,13 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
 
   root 'welcome#index'
-  get 'users/log_in' => 'users#log_in', as: :log_in
+  get '/users/log_in' => 'users#log_in', as: :log_in
 
   resources :users, except: [:show]
   get '/users/profile' => 'users#profile', as: :user_profile
+  get '/users/map_view' => 'users#map_view', as: :map_view
 
-  post 'sessions' => 'sessions#create'
+  post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy', as: :log_out
 
 

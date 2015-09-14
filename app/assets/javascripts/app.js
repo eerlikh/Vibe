@@ -1,11 +1,23 @@
 $(document).ready(function() {
   init();
-})
+});
 
 
 function init() {
 
 console.log('scripts loaded');
+<<<<<<< HEAD
+=======
+
+
+navigator.geolocation.getCurrentPosition(function(position) {
+  var lat = position.coords.latitude;
+  var lon = position.coords.longitude;
+  $('#lat').attr('value', lat);
+  $('#lon').attr('value', lon);
+});
+
+>>>>>>> f8647a04f22e68918ddc3dea43e7ef32ff6d5ef0
 
 var token = $('#api-token').val();
 $.ajaxSetup({
@@ -15,16 +27,27 @@ $.ajaxSetup({
 }
 });
 //model
-var Rating = Backbone.Model.extend({});
+var Rating = Backbone.Model.extend({
+  defaults: {
+    "mood": 5,
+    "comment": "whatevs"
+
+  }
+});
 //collection
 var RatingCollection = Backbone.Collection.extend({
 model: Rating,
 url: '/api/ratings'
 });
+
+var MapRatingCollection = Backbone.Collection.extend({
+  model: Rating,
+  url: '/api/ratings/map_ratings'
+});
 //views
 
 var RatingView = Backbone.View.extend({
-  tagName: 'div',
+  tagName: 'tr',
   className: 'rating',
   template: _.template( $('#rating-template').html() ),
   render: function(){
@@ -61,11 +84,17 @@ var RatingListView = Backbone.View.extend({
 
 
 var ratings = new RatingCollection();
+var mapRatings = new MapRatingCollection();
 var RatingPainter = new RatingListView({
   collection: ratings,
   el: $('#ratings-list')
 });
+var MapRatingPainter = new RatingListView({
+  collection: mapRatings,
+  el: $('#map-ratings-list')
+});
 ratings.fetch();
+mapRatings.fetch();
 
 /*
 $('form.create-rating').on('submit', function(e){
@@ -81,7 +110,8 @@ $('.create-rating').on('submit', function(e){
   ratings.create(data.rating);
 });
 
-=======
+}
+
 //
 // var token = $('#api-token').val();
 // $.ajaxSetup({

@@ -46,6 +46,12 @@ class UsersController < ApplicationController
   def log_in
   end
 
+  def new_rating
+    return nil unless authenticate!
+    @users = current_user
+    @ratings = Rating.all
+  end
+
   def map_view
     return nil unless authenticate!
     @user = current_user

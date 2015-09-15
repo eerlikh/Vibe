@@ -14,7 +14,7 @@
 //= require jquery.serializejson
 //= require underscore
 //= require backbone
-//= require app
+//= require slider
 //= require profile
 //= require map
 //= require turbolinks

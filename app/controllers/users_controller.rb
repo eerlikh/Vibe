@@ -50,6 +50,7 @@ class UsersController < ApplicationController
     return nil unless authenticate!
     @users = current_user
     @ratings = Rating.all
+  end
 
   def log_out
     session[:user_id] = nil

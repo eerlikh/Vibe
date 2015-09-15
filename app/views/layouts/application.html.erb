@@ -10,9 +10,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
   <title>Vibe</title>
-  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= stylesheet_link_tag    'application', media: 'all' %>
 
-  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application' %>
   <%= csrf_meta_tags %>
 
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -55,6 +55,7 @@
       <ul>
         <% if session[:user_id] %>
         <a href="/users/profile"><li>Profile</li></a>
+        <a href="/users/map_view"><li>Map View</li></a>
         <a href="/users/log_out"><li>Log Out</li></a>
         <% else %>
         <a href="/users/new"><li>Sign Up</li></a>

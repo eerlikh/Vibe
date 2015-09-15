@@ -15,6 +15,5 @@
 //= require jquery.serializejson
 //= require underscore
 //= require backbone
-//= require turbolinks
 
 console.log('application manifest');

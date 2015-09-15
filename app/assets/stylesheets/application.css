@@ -15,7 +15,7 @@
  *= require_bootstrap
  */
 
- body{
+body{
    font-family: 'Noto Sans', sans-serif;
  	 margin:0;
    width: 100%;
@@ -24,36 +24,47 @@
 
  }
 
- form{
+form{
    margin-left: 20px;
    font-family: 'Poiret One', cursive;
 
  }
- input{
+input{
    background-color: lightblue;
    font-family: 'Poiret One', cursive;
-   font-size: 25px;
-   padding: 10px 15px;
    width: 150px;
    border: 1px solid black;
  }
- label{
-
+label{
+  font-size: 20px;
+  width: 120px;
  }
 
-.container{
-   width: 600px;
-   margin: 0 auto;
-   position: relative;
-   background-color: grey;
+a{
 
 }
-.backgroundImage{
-  width: 600px;
-  height: 340px;
-  background-image: url('CityScape.jpg');
-  background-size: 100%;
-  background-repeat: no-repeat;
+
+.marginTop {
+  margin-top: 15px;
+}
+
+.textAlignCenter{
+  margin: 30px;
+  text-align: center;
+}
+
+.container {
+  padding: 0;
+  margin: 0 auto;
+  position: relative;
+  background-color: grey;
+}
+
+
+.backgroundImage {
+    background-image: url('CityScape.jpg');
+    background-repeat: no-repeat;
+    height: 545px;
 }
 
 .header{
@@ -69,20 +80,20 @@
    font-size: 40px;
    margin-left: 15px;
 }
-.hamburger{
-   background:none;
-   float: right;
-   top:0;
-   right:0;
-   line-height:45px;
-   padding:0px 15px 0px 15px;
-   color: lightblue;
-   border:0;
-   font-size:1.4em;
-   font-weight:bold;
-   cursor:pointer;
-   outline:none;
-   z-index:10000000000000;
+.hamburger {
+    background: none;
+    float: right;
+    top: 0;
+    right: 0;
+    line-height: 45px;
+    padding: 0px 15px 0px 15px;
+    color: lightblue;
+    border: 0;
+    font-size: 35px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: none;
+    z-index: 10000000000000;
 }
 .cross{
    background:none;
@@ -99,16 +110,14 @@
    outline:none;
    z-index:10000000000000;
 }
-  .menu{
-   z-index:1000000;
-   font-weight:bold;
-   font-size:0.8em;
-   width:100%;
-   background:#131313;
-   position:absolute;
-   text-align:center;
-  }
-
+.menu {
+    z-index: 1000000;
+    font-family: 'Poiret One', cursive;
+    width: 100%;
+    background: #131313;
+    position: absolute;
+    text-align: center;
+}
 .menu ul {
    margin: 0;
    padding: 0;
@@ -146,30 +155,20 @@
   color:white;
 }
 
-.glyphicon-home{
- color:white;
- font-size:1.5em;
- margin-top:5px;
- margin:0 auto;
-}
-
-.buttonContainer{
-  margin: -145px 225px;
+.buttonContainer {
+    text-align: center;
+    padding-top: 300px;
 }
 
 .mainButton{
   background-color: lightblue;
+  color: black;
   font-family: 'Poiret One', cursive;
   font-size: 25px;
   padding: 10px 15px;
   width: 150px;
   border: 1px solid black;
   margin: 10px;
-}
-a:-webkit-any-link {
-    color: -webkit-link;
-    text-decoration: none;
-    cursor: auto;
 }
 
 .new_user {
@@ -178,72 +177,69 @@ a:-webkit-any-link {
 }
 
 #username{
-  display: block;
+  width: 35%;
+  border-radius: 5px;
   background-color: white;
-  width: 200px;
-  heigh: 100px;
 }
 
 #password{
-  display: block;
+  width: 35%;
+  border-radius: 5px;
   background-color: white;
-  width: 200px;
-  heigh: 100px;
-
 }
 #user_first_name{
-  display: block;
+  float: left;
+  width: 85%;
+  border-radius: 5px;
   background-color: white;
-  width: 200px;
-  heigh: 100px;
 }
 #user_last_name{
-  display: block;
+  float: left;
+  width: 85%;
+  border-radius: 5px;
   background-color: white;
-  width: 200px;
-  heigh: 100px;
 }
 #user_username{
-  display: block;
+  float: left;
+  width: 85%;
+  border-radius: 5px;
   background-color: white;
-  width: 200px;
-  heigh: 100px;
-}
-#user_password{
-  display: block;
-  background-color: white;
-  width: 200px;
-  heigh: 100px;
 }
 #user_email{
-  display: block;
+  float: left;
+  width: 85%;
+  border-radius: 5px;
   background-color: white;
-  width: 200px;
-  heigh: 100px;
+}
+#user_password{
+  float: left;
+  width: 85%;
+  border-radius: 5px;
+  background-color: white;
 }
 #user_address{
-  display: block;
+  float: left;
+  width: 85%;
+  border-radius: 5px;
   background-color: white;
-  width: 200px;
-  heigh: 100px;
 }
 #user_city{
-  display: block;
+  float: left;
+  width: 85%;
+  border-radius: 5px;
   background-color: white;
-  width: 200px;
-  heigh: 100px;
 }
 #user_state{
-  display: block;
+  float: left;
+  width: 85%;
+  border-radius: 5px;
   background-color: white;
-  width: 200px;
-  heigh: 100px;
   }
 #user_zip{
-  display: block;
+  float: left;
+  width: 85%;
+  border-radius: 5px;
   background-color: white;
-  width: 200px;
-  heigh: 100px;
 }
 
 #map {

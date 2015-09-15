@@ -24,6 +24,8 @@
 </head>
 <body>
 
+
+
   <div class="container">
 
     <div class='header'>
@@ -34,8 +36,13 @@
 
     <div class="menu">
       <ul>
-        <a href="#"><li>Profile</li></a>
-        <a href="#"><li>Log Out</li></a>
+        <% if session[:user_id] %>
+        <a href="/users/profile"><li>Profile</li></a>
+        <a href="/users/log_out"><li>Log Out</li></a>
+        <% else %>
+        <a href="/users/new"><li>Sign Up</li></a>
+        <a href="/users/log_in"><li>Log In</li></a>
+        <% end %>
       </ul>
     </div>
 

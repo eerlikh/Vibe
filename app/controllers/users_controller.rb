@@ -46,6 +46,11 @@ class UsersController < ApplicationController
   def log_in
   end
 
+  def log_out
+    session[:user_id] = nil
+    redirect_to root_path
+  end
+
   def map_view
     return nil unless authenticate!
     @user = current_user

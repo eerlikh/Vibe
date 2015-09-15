@@ -15,8 +15,6 @@
 //= require underscore
 //= require backbone
 //= require app
-//= require profile
-//= require map
 //= require turbolinks
 
 console.log('users manifest');

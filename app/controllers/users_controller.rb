@@ -24,7 +24,7 @@ class UsersController < ApplicationController
   end
 
   def profile
-    authenticate!
+    return nil unless authenticate!
     @user = current_user
     render layout: "profile_layout"
   end
@@ -47,7 +47,7 @@ class UsersController < ApplicationController
   end
 
   def map_view
-    authenticate!
+    return nil unless authenticate!
     @user = current_user
     @ratings = Rating.all
     render layout: "map_layout"

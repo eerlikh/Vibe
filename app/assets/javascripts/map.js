@@ -2,19 +2,28 @@ var lat;
 var lon;
 
 
+var mapDisplay;
+
+var markers;
+
+
 $(document).ready(function() {
   init();
 });
 
 function init() {
+
+
+
   console.log('map scripts loaded');
 
   navigator.geolocation.getCurrentPosition(function(position) {
     lat = position.coords.latitude;
     lon = position.coords.longitude;
 
-    myMap.init(lat, lon);
-    myApplication.init();
+    mapDisplay = initMap(lat, lon);
+    console.log(markers);
+    makeMarkers(markers);
   });
 
   var token = $('#api-token').val();
@@ -63,17 +72,23 @@ function init() {
     },
     render: function(){
       this.$el.empty();
+      markers = [];
       var ratings = this.collection.models;
       var view;
       for (var i = 0; i < ratings.length; i++) {
+        var coordinates = [parseFloat(ratings[i].attributes.latitude), parseFloat(ratings[i].attributes.longitude)];
+        markers.push(coordinates);
         view = new RatingView({model: ratings[i]});
         view.render();
         this.$el.append( view.$el );
       }
+
+
+
     }
   });
 
-  // Collection of ALL user's ratings for dispaly on map
+  // Collection of ALL user's ratings for display on map
   var MapRatingCollection = Backbone.Collection.extend({
     model: Rating,
     url: '/api/ratings/map_ratings'
@@ -87,6 +102,8 @@ function init() {
   });
 
   mapRatings.fetch();
+
+
 
 }
 
@@ -129,29 +146,43 @@ function init() {
 
 
 
-var myMap = myMap || {};
-var myApplication =  myApplication || {};
+// var myMap = myMap || {};
+// var myApplication =  myApplication || {};
 
-myMap.init = function(lat, lon) {
-    this.map;
-    this.currentLatLng;
-    this.zoom = 14;
-    this.mapEl = document.getElementById('map');
+function initMap(lat, lon) {
+    var map;
+    var currentLatLng;
+    var zoom = 14;
+    var mapEl = document.getElementById('map');
 
-    this.currentLatLng = new google.maps.LatLng( lat, lon );
-    this.map = new google.maps.Map( this.mapEl, {
-        center: this.currentLatLng,
-        zoom: this.zoom
+    currentLatLng = new google.maps.LatLng( lat, lon );
+    map = new google.maps.Map( mapEl, {
+        center: currentLatLng,
+        zoom: zoom
     });
 
-    this.marker = new google.maps.Marker({
-          position: this.currentLatLng,
-          map: this.map,
-          title: 'Hello World!',
-          animation: google.maps.Animation.DROP
-    });
+
+    // this.marker = new google.maps.Marker({
+    //       position: this.currentLatLng,
+    //       map: this.map,
+    //       title: 'Hello World!',
+    //       animation: google.maps.Animation.DROP
+    // });
+
+    return map;
 }
 
+function makeMarkers(markers) {
+  for(var i = 0; i < markers.length; i++) {
+    var loc = markers[i];
+    var newMarker = new google.maps.Marker({
+      position: {lat: loc[0], lng: loc[1]},
+      map: mapDisplay
+    });
+  }
+}
+
+/*
 myMap.reCenterMap = function() {
   myMap.map.setCenter( this.currentLatLng );
 }
@@ -165,3 +196,4 @@ myApplication.init = function() {
   myMap.reCenterMap();
   myMap.updateMarker();
 }
+*/

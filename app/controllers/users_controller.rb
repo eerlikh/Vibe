@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   #edit_user GET    /users/:id/edit(.:format) users#edit
   def edit
-    @user = User.find(params[:id])
+      @user = current_user
   end
 
   def profile

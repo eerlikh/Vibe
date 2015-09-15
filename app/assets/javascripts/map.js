@@ -18,6 +18,7 @@ function init() {
   console.log('map scripts loaded');
 
   navigator.geolocation.getCurrentPosition(function(position) {
+    console.log(position);
     lat = position.coords.latitude;
     lon = position.coords.longitude;
 

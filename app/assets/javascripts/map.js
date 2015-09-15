@@ -55,7 +55,7 @@ function init() {
   var RatingView = Backbone.View.extend({
     tagName: 'tr',
     className: 'rating',
-    template: _.template( $('#rating-template').html() ),
+    template: _.template( $('#map-rating-template').html() ),
     render: function(){
       this.$el.empty();
       var html = this.template( this.model.toJSON() );

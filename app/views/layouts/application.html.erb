@@ -9,10 +9,10 @@
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-  <title>GroupProject3</title>
+  <title>Vibe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-  <%= javascript_include_tag 'application', 'users', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -20,6 +20,23 @@
 
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <script type="text/template" id='map-rating-template'>
+      <td><%%= mood %></td>
+      <td><%%= comment %></td>
+      <td><%%= latitude %></td>
+      <td><%%= longitude %></td>
+  </script>
+
+  <script type="text/template" id='profile-rating-template'>
+      <td><%%= mood %></td>
+      <td><%%= comment %></td>
+      <td>
+        <button type="button" class='remove'>
+          Remove
+        </button>
+      </td>
+  </script>
 
 </head>
 <body>

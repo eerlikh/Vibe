@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   resources :users, except: [:show]
   get '/users/profile' => 'users#profile', as: :user_profile
   get '/users/map_view' => 'users#map_view', as: :map_view
+  get '/users/edit' => 'users#edit', as: :edit
+
 
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy', as: :log_out

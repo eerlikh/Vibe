@@ -14,6 +14,7 @@
 //= require jquery_ujs
 //= require jqueryui
 //= require jquery.serializejson
+//= slider
 //= require underscore
 //= require backbone
 

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
 
   root 'welcome#index'
   get '/users/log_in' => 'users#log_in', as: :log_in
+  get '/users/log_out' => 'users#log_out', as: :get_log_out
 
   resources :users, except: [:show]
   get '/users/profile' => 'users#profile', as: :user_profile

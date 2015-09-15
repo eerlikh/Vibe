@@ -26,7 +26,7 @@ class UsersController < ApplicationController
   def profile
     return nil unless authenticate!
     @user = current_user
-    render layout: "profile_layout"
+    #render layout: "profile_layout"
   end
 
   #          PATCH  /users/:id(.:format)      users#update
@@ -50,13 +50,17 @@ class UsersController < ApplicationController
     return nil unless authenticate!
     @users = current_user
     @ratings = Rating.all
+
+  def log_out
+    session[:user_id] = nil
+    redirect_to root_path
   end
 
   def map_view
     return nil unless authenticate!
     @user = current_user
     @ratings = Rating.all
-    render layout: "map_layout"
+    #render layout: "map_layout"
   end
 
   private

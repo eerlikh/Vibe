@@ -9,10 +9,10 @@
   <!-- Optional theme -->
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
 
-  <title>GroupProject3</title>
+  <title>Vibe</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
 
-  <%= javascript_include_tag 'application', 'users', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 
   <link href='https://fonts.googleapis.com/css?family=Lobster' rel='stylesheet' type='text/css'>
@@ -21,26 +21,69 @@
   <!-- Latest compiled and minified JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
 
+  <script type="text/template" id='map-rating-template'>
+      <td><%%= mood %></td>
+      <td><%%= comment %></td>
+      <td><%%= latitude %></td>
+      <td><%%= longitude %></td>
+  </script>
+
+  <script type="text/template" id='profile-rating-template'>
+      <td><%%= mood %></td>
+      <td><%%= comment %></td>
+      <td>
+        <button type="button" class='remove'>
+          Remove
+        </button>
+      </td>
+  </script>
+
 </head>
 <body>
+
+
 
   <div class="container">
 
     <div class='header'>
       <div class='mainLogo'>Vibe</div>
       <button class="hamburger">&#9776;</button>
-      <!-- <button class="cross">&#735;</button> -->
+      <button class="cross">&#735;</button>
     </div>
 
     <div class="menu">
       <ul>
-        <a href="#"><li>Profile</li></a>
-        <a href="#"><li>Log Out</li></a>
+        <% if session[:user_id] %>
+        <a href="/users/profile"><li>Profile</li></a>
+        <a href="/users/log_out"><li>Log Out</li></a>
+        <% else %>
+        <a href="/users/new"><li>Sign Up</li></a>
+        <a href="/users/log_in"><li>Log In</li></a>
+        <% end %>
       </ul>
     </div>
 
     <%= yield %>
+    <script type="text/javascript">
 
+    $( ".cross" ).hide();
+    $( ".menu" ).hide();
+    $( ".hamburger" ).click(function() {
+      $( ".menu" ).slideToggle( "slow", function() {
+        $( ".hamburger" ).hide();
+        $( ".cross" ).show();
+      });
+    });
+
+    $( ".cross" ).click(function() {
+      $( ".menu" ).slideToggle( "slow", function() {
+        $( ".cross" ).hide();
+        $( ".hamburger" ).show();
+      });
+    });
+
+
+    </script>
   </div>
 </body>
 </html>

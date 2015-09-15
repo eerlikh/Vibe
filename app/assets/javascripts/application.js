@@ -12,9 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require jqueryui
 //= require jquery.serializejson
+//= slider
 //= require underscore
 //= require backbone
-//= require turbolinks
 
 console.log('application manifest');

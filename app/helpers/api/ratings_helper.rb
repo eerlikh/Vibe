@@ -1,6 +1,7 @@
 module Api::RatingsHelper
 
   def current_api_user!
+    #byebug
     if token = params[:token] || env['HTTP_TOKEN']
       @current_user = User.find_by({token: token})
     else

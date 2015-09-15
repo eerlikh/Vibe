@@ -23,7 +23,7 @@ Rails.application.routes.draw do
   get '/users/profile' => 'users#profile', as: :user_profile
   get '/users/map_view' => 'users#map_view', as: :map_view
   get '/users/edit' => 'users#edit', as: :edit
-
+  get '/users/vibe' => 'users#new_rating', as: :new_rating
 
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy', as: :log_out

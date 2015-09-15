@@ -29,8 +29,6 @@ function init() {
     console.log("Error:" + error.code + " " + error.message);
     lat =  40.761792;
     lon =  -73.965431;
-  }, {
-    timeout: 3000
   });
 
   var token = $('#api-token').val();

@@ -62,15 +62,3 @@ function setSlider() {
         });
         $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
       };
-
-
-      // #FF0000 1
-      // #FF3300 2
-      // #FF6600 3
-      // #FFAA00 4
-      // #FFFF00 5
-      // #CCFF00 6
-      // #99FF00 7
-      // #66FF00 8
-      // #33FF00 9
-      // #00FF00 10

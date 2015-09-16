@@ -145,7 +145,7 @@ function makeMarkers(markers) {
     mood = loc[3];
 
 
-    var contentString = '<p>' + mood + ': ' + message + '</p>';
+    var contentString = '<p class = "infowindow">' + mood + ': ' + message + '</p>';
 
     var infowindow = new google.maps.InfoWindow({
       content: contentString

@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    redirect_to root_path
+    redirect_to map_view_path
   end
 
   # new_user GET    /users/new(.:format)      users#new

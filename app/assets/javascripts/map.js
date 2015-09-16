@@ -104,7 +104,11 @@ function init() {
 
     mapDisplay = initMap(lat, lon);
     console.log(markers);
-    makeMarkers(markers);
+    //makeMarkers(markers);
+
+    google.maps.event.addListenerOnce(mapDisplay, 'idle', function(){
+      makeMarkers(markers);
+    });
   }, function(error) {
     console.log("Error:" + error.code + " " + error.message);
     lat =  40.761792;
@@ -172,8 +176,13 @@ function addInfoWindowListeners() {
     currentMarker = googleMarkers[i];
     currentInfoWindow = googleInfoWindows[i];
 
-    currentMarker.addListener('click', function() {
-      currentInfoWindow.open(mapDisplay, currentMarker);
-    });
+    addInfo(currentMarker, currentInfoWindow);
+    
   }
+}
+
+function addInfo(marker, infoWindow) {
+  marker.addListener('click', function() {
+    infoWindow.open(mapDisplay, marker);
+  });
 }

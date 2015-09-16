@@ -4,6 +4,73 @@
 
 <h1>Hello, <%= @user.first_name %></h1>
 
+  <div class="container">
+  <%= form_for @user do |f| %>
+  <div class="row marginTop">
+    <div class="col-md-1 col-lg-2">
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+      <%= f.label :first_name, "First name:" %>
+      <%= @user.first_name %>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+      <%= f.label :last_name, "Last name:"%>
+      <%= @user.last_name %>
+    </div>
+  </div>
+
+  <div class="row marginTop">
+    <div class="col-md-1 col-lg-2">
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+      <%= f.label :username, "Username:" %>
+      <%= @user.username %>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+      <%= f.label :email, "Email:" %>
+      <%= @user.email %>
+    </div>
+  </div>
+
+  <div class="row marginTop">
+    <div class="col-md-1 col-lg-2">
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+      <%= f.label :address %>
+      <%= @user.address %>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+      <%= f.label :city %>
+      <%= @user.city %>
+    </div>
+  </div>
+  <div class="row marginTop">
+    <div class="col-md-1 col-lg-2">
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+      <%= f.label :state %>
+      <%= @user.state %>
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+      <%= f.label :zip_code %>
+      <%= @user.zip %>
+    </div>
+  </div>
+
+<% end %>
+
+  <div class="row textAlignCenter">
+    <div class="col-md-1 col-lg-2">
+    </div>
+    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
+        <a href="users/edit"><button class='mainButton'>Edit</button></a>
+    </div>
+  </div>
+</div>
+
 <%= button_to 'Log-Out', log_out_path, method: :delete %>
 
 <form class="create-rating" action="/api/ratings" method="post">

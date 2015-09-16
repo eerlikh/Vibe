@@ -10,6 +10,8 @@ var googleMarkers = [];
 
 var googleInfoWindows = [];
 
+var activeInfoWindows = [];
+
 
 $(document).ready(function() {
   init();
@@ -177,12 +179,23 @@ function addInfoWindowListeners() {
     currentInfoWindow = googleInfoWindows[i];
 
     addInfo(currentMarker, currentInfoWindow);
-    
+
   }
 }
 
 function addInfo(marker, infoWindow) {
   marker.addListener('click', function() {
+    clearInfo();
+
     infoWindow.open(mapDisplay, marker);
+    activeInfoWindows[0] = infoWindow;
   });
+}
+
+function clearInfo() {
+  if(activeInfoWindows.length > 0) {
+    activeInfoWindows[0].set("marker", null);
+    activeInfoWindows[0].close();
+    activeInfoWindows.length = 0;
+  }
 }

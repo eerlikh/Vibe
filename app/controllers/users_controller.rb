@@ -10,7 +10,7 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     @user.save
-    redirect_to map_view_path
+    redirect_to log_in_path
   end
 
   # new_user GET    /users/new(.:format)      users#new
@@ -20,7 +20,7 @@ class UsersController < ApplicationController
 
   #edit_user GET    /users/:id/edit(.:format) users#edit
   def edit
-      @user = current_user
+    @user = current_user
   end
 
   def profile

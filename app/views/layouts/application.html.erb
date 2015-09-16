@@ -46,9 +46,15 @@
   <div class="container">
 
     <div class='header'>
-      <div class='mainLogo'>Vibe</div>
+      <% if session[:user_id] %>
+      <a href="/users/map_view"><div class='mainLogo'>Vibe</div></a>
+      <% else %>
+      <a href="/"><div class='mainLogo'>Vibe</div></a>
+      <% end %>
+
       <button class="hamburger">&#9776;</button>
       <button class="cross">&#735;</button>
+
     </div>
 
     <div class="menu">

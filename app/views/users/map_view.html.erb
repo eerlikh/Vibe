@@ -2,14 +2,21 @@
 <script type="text/javascript" src="<%= asset_path("map.js") %>"></script>
 <input type="hidden" id='api-token' value="<%= @user.token %>">
 
-
-<h1>What's the Vibe in your area?</h1>
-
 <div id="map"></div>
 
+<div class="mapVibeButton">
+  <div class="row">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <a href="/users/vibe/"><button class='mainButton'>Vibe</button></a>
+    </div>
+  </div>
+</div>
 
+
+<div class="hiddenElements">
 <table>
   <tbody id="map-ratings-list">
 
   </tbody>
 </table>
+</div>

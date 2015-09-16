@@ -6,6 +6,12 @@ var mapDisplay;
 
 var markers;
 
+var googleMarkers = [];
+
+var googleInfoWindows = [];
+
+var activeInfoWindows = [];
+
 
 $(document).ready(function() {
   init();
@@ -100,7 +106,11 @@ function init() {
 
     mapDisplay = initMap(lat, lon);
     console.log(markers);
-    makeMarkers(markers);
+    //makeMarkers(markers);
+
+    google.maps.event.addListenerOnce(mapDisplay, 'idle', function(){
+      makeMarkers(markers);
+    });
   }, function(error) {
     console.log("Error:" + error.code + " " + error.message);
     lat =  40.761792;
@@ -151,5 +161,42 @@ function makeMarkers(markers) {
     infowindow.open(mapDisplay, newMarker);
     });
 
+    googleMarkers.push(newMarker)
+
+    /* newMarker.addListener('click', function() {
+      infowindow.open(mapDisplay, newMarker)
+    }); */
+  }
+
+  console.log(googleInfoWindows);
+  console.log(googleMarkers);
+
+  addInfoWindowListeners();
+}
+
+function addInfoWindowListeners() {
+  for(var i = 0; i < googleInfoWindows.length; i++) {
+    currentMarker = googleMarkers[i];
+    currentInfoWindow = googleInfoWindows[i];
+
+    addInfo(currentMarker, currentInfoWindow);
+
+  }
+}
+
+function addInfo(marker, infoWindow) {
+  marker.addListener('click', function() {
+    clearInfo();
+
+    infoWindow.open(mapDisplay, marker);
+    activeInfoWindows[0] = infoWindow;
+  });
+}
+
+function clearInfo() {
+  if(activeInfoWindows.length > 0) {
+    activeInfoWindows[0].set("marker", null);
+    activeInfoWindows[0].close();
+    activeInfoWindows.length = 0;
   }
 }

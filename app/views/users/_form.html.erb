@@ -71,7 +71,12 @@
   <div class="col-md-1 col-lg-2">
   </div>
   <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
-    <%= f.submit "Submit", class: "mainButton" %>
+    <% if session[:user_id] %>
+    <% button_name = "Edit" %>
+    <% else %>
+    <% button_name = "Join Up" %>
+    <% end %>
+    <%= f.submit button_name, class: "mainButton" %>
   </div>
 </div>
 <% end %>

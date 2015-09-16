@@ -2,17 +2,35 @@
 <script type="text/javascript" src="<%= asset_path("slider.js") %>"></script>
 
 <form class="create-rating" action="/api/ratings" method="post">
-<p>
-  <label for="amount">Mood Rating:</label>
-  <input type="text" name="rating[mood]" id="amount">
-</p>
-<div id="slider-range-max"></div>
-<textarea name="rating[comment]" rows="3" cols="45">Write something here</textarea>
 
-<input type="hidden" name="rating[latitude]" id="lat">
-<input type="hidden" name="rating[longitude]" id="lon">
-<input type="submit" value="Add Rating">
+
+    <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <label for="amount">Mood Rating:</label>
+      <input type="text" name="rating[mood]" id="amount">
+    </div> -->
+    <div class="row textAlignCenter">
+      <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6 ">
+      </div>
+
+      <div class="divCenter col-xs-6 col-sm-6 col-md-6 col-lg-6">
+        <div id="slider-range-max"></div>
+      </div>
+    </div>
+
+  <div class="row textAlignCenter">
+    <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+
+      <textarea name="rating[comment]" rows="3" cols="45">Write something here</textarea>
+    </div>
+  </div>
+  <div class="row textAlignCenter">
+    <input type="hidden" name="rating[latitude]" id="lat">
+    <input type="hidden" name="rating[longitude]" id="lon">
+    <input class="mainButton" type="submit" value="Vibe">
+  </div>
+
 </form>
+
 
 <!--
 <form class="create-rating" action="/api/ratings" method="post">

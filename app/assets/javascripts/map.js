@@ -3,7 +3,7 @@ var lon;
 
 
 var mapDisplay;
-var newMarker;
+
 var markers;
 
 
@@ -69,7 +69,7 @@ function init() {
       var ratings = this.collection.models;
       var view;
       for (var i = 0; i < ratings.length; i++) {
-        var coordinates = [parseFloat(ratings[i].attributes.latitude), parseFloat(ratings[i].attributes.longitude)];
+        var coordinates = [parseFloat(ratings[i].attributes.latitude), parseFloat(ratings[i].attributes.longitude), ratings[i].attributes.comment, ratings[i].attributes.mood];
         markers.push(coordinates);
         view = new RatingView({model: ratings[i]});
         view.render();
@@ -100,7 +100,7 @@ function init() {
 
     mapDisplay = initMap(lat, lon);
     console.log(markers);
-    makeMarkers(markers, newMarker);
+    makeMarkers(markers);
   }, function(error) {
     console.log("Error:" + error.code + " " + error.message);
     lat =  40.761792;
@@ -124,21 +124,26 @@ function initMap(lat, lon) {
         zoom: zoom
     });
 
-
     return map;
 }
 
-function makeMarkers(markers, newMarker) {
+function makeMarkers(markers) {
   for(var i = 0; i < markers.length; i++) {
     var loc = markers[i];
 
-    var contentString = '<div id="content">bob</div>';
+    message = loc[2];
+    mood = loc[3];
+
+
+    var contentString = '<p>' + mood + ': ' + message + '</p>';
+
     var infowindow = new google.maps.InfoWindow({
       content: contentString
     });
 
     newMarker = new google.maps.Marker({
     position: {lat: loc[0], lng: loc[1]},
+    icon: '',
     map: mapDisplay
     });
 

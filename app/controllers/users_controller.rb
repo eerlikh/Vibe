@@ -48,7 +48,7 @@ class UsersController < ApplicationController
 
   def new_rating
     return nil unless authenticate!
-    @users = current_user
+    @user = current_user
     @ratings = Rating.all
   end
 

@@ -3,7 +3,7 @@ var lon;
 
 
 var mapDisplay;
-
+var newMarker;
 var markers;
 
 
@@ -100,13 +100,12 @@ function init() {
 
     mapDisplay = initMap(lat, lon);
     console.log(markers);
-    makeMarkers(markers);
+    makeMarkers(markers, newMarker);
   }, function(error) {
     console.log("Error:" + error.code + " " + error.message);
     lat =  40.761792;
     lon =  -73.965431;
   });
-
 
 
 }
@@ -126,16 +125,26 @@ function initMap(lat, lon) {
     });
 
 
-
     return map;
 }
 
-function makeMarkers(markers) {
+function makeMarkers(markers, newMarker) {
   for(var i = 0; i < markers.length; i++) {
     var loc = markers[i];
-    var newMarker = new google.maps.Marker({
-      position: {lat: loc[0], lng: loc[1]},
-      map: mapDisplay
+
+    var contentString = '<div id="content">bob</div>';
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
     });
+
+    newMarker = new google.maps.Marker({
+    position: {lat: loc[0], lng: loc[1]},
+    map: mapDisplay
+    });
+
+    newMarker.addListener('click', function() {
+    infowindow.open(mapDisplay, newMarker);
+    });
+
   }
 }

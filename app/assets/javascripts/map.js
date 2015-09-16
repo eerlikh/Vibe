@@ -6,6 +6,10 @@ var mapDisplay;
 
 var markers;
 
+var googleMarkers = [];
+
+var googleInfoWindows = [];
+
 
 $(document).ready(function() {
   init();
@@ -69,7 +73,7 @@ function init() {
       var ratings = this.collection.models;
       var view;
       for (var i = 0; i < ratings.length; i++) {
-        var coordinates = [parseFloat(ratings[i].attributes.latitude), parseFloat(ratings[i].attributes.longitude)];
+        var coordinates = [parseFloat(ratings[i].attributes.latitude), parseFloat(ratings[i].attributes.longitude), ratings[i].attributes.comment, ratings[i].attributes.mood];
         markers.push(coordinates);
         view = new RatingView({model: ratings[i]});
         view.render();
@@ -133,9 +137,43 @@ function initMap(lat, lon) {
 function makeMarkers(markers) {
   for(var i = 0; i < markers.length; i++) {
     var loc = markers[i];
+
+    message = loc[2];
+    mood = loc[3];
+
+    var contentString = '<p>'+ mood + ': ' + message + '</p>';
+
+    var infowindow = new google.maps.InfoWindow({
+      content: contentString
+    });
+
+    googleInfoWindows.push(infowindow);
+
     var newMarker = new google.maps.Marker({
       position: {lat: loc[0], lng: loc[1]},
       map: mapDisplay
+    });
+
+    googleMarkers.push(newMarker)
+
+    /* newMarker.addListener('click', function() {
+      infowindow.open(mapDisplay, newMarker)
+    }); */
+  }
+
+  console.log(googleInfoWindows);
+  console.log(googleMarkers);
+
+  addInfoWindowListeners();
+}
+
+function addInfoWindowListeners() {
+  for(var i = 0; i < googleInfoWindows.length; i++) {
+    currentMarker = googleMarkers[i];
+    currentInfoWindow = googleInfoWindows[i];
+
+    currentMarker.addListener('click', function() {
+      currentInfoWindow.open(mapDisplay, currentMarker);
     });
   }
 }

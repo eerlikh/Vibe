@@ -6,6 +6,10 @@ var mapDisplay;
 
 var markers;
 
+var googleMarkers = [];
+
+var googleInfoWindows = [];
+
 
 $(document).ready(function() {
   init();
@@ -134,13 +138,18 @@ function makeMarkers(markers) {
     message = loc[2];
     mood = loc[3];
 
+<<<<<<< HEAD
 
     var contentString = '<p>' + mood + ': ' + message + '</p>';
+=======
+    var contentString = '<p>'+ mood + ': ' + message + '</p>';
+>>>>>>> 6e666c8d7703b3ee8023ec46f07523dbf50cba32
 
     var infowindow = new google.maps.InfoWindow({
       content: contentString
     });
 
+<<<<<<< HEAD
     newMarker = new google.maps.Marker({
     position: {lat: loc[0], lng: loc[1]},
     icon: '',
@@ -151,5 +160,35 @@ function makeMarkers(markers) {
     infowindow.open(mapDisplay, newMarker);
     });
 
+=======
+    googleInfoWindows.push(infowindow);
+
+    var newMarker = new google.maps.Marker({
+      position: {lat: loc[0], lng: loc[1]},
+      map: mapDisplay
+    });
+
+    googleMarkers.push(newMarker)
+
+    /* newMarker.addListener('click', function() {
+      infowindow.open(mapDisplay, newMarker)
+    }); */
+  }
+
+  console.log(googleInfoWindows);
+  console.log(googleMarkers);
+
+  addInfoWindowListeners();
+}
+
+function addInfoWindowListeners() {
+  for(var i = 0; i < googleInfoWindows.length; i++) {
+    currentMarker = googleMarkers[i];
+    currentInfoWindow = googleInfoWindows[i];
+
+    currentMarker.addListener('click', function() {
+      currentInfoWindow.open(mapDisplay, currentMarker);
+    });
+>>>>>>> 6e666c8d7703b3ee8023ec46f07523dbf50cba32
   }
 }

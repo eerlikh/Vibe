@@ -1,10 +1,18 @@
 <script type="text/javascript" src="<%= asset_path("profile.js") %>"></script>
 
-<input type="hidden" id='api-token' value="<%= @user.token %>">
 
-<h1>Hello, <%= @user.first_name %></h1>
+<div class="container">
 
-  <div class="container">
+  <input type="hidden" id='api-token' value="<%= @user.token %>">
+
+  <div class="row marginTop">
+    <div class="col-md-1 col-lg-2">
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+      <div class="title">Profile</div>
+    </div>
+  </div>
+
   <%= form_for @user do |f| %>
   <div class="row marginTop">
     <div class="col-md-1 col-lg-2">
@@ -60,29 +68,17 @@
     </div>
   </div>
 
-<% end %>
+  <% end %>
 
-  <div class="row textAlignCenter">
+  <div class="row marginTop">
     <div class="col-md-1 col-lg-2">
     </div>
-    <div class="col-xs-12 col-sm-12 col-md-10 col-lg-8">
+    <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
         <a href="users/edit"><button class='mainButton'>Edit</button></a>
+    </div>
+
+    <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+        <a href="/users/vibe/"><button class='mainButton'>Vibe</button></a>
     </div>
   </div>
 </div>
-
-<%= button_to 'Log-Out', log_out_path, method: :delete %>
-
-<form class="create-rating" action="/api/ratings" method="post">
-  <input type="text" id="rating-post" name="rating[mood]" placeholder="Rating (1-10)">
-  <input type="text" name="rating[comment]" placeholder="Comment...">
-  <input type="hidden" name="rating[latitude]" id="lat">
-  <input type="hidden" name="rating[longitude]" id="lon">
-  <input type="submit" value="Add Rating">
-</form>
-
-<table>
-  <tbody id="ratings-list">
-
-  </tbody>
-</table>

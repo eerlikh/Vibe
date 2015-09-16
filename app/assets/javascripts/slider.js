@@ -1,5 +1,6 @@
 $(document).ready(function() {
   console.log("Slider time");
+  init();
   setSlider();
 });
 function setSlider() {
@@ -63,6 +64,54 @@ function setSlider() {
         });
         $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
       };
+
+      function init() {
+        console.log('slider scripts loaded');
+
+        navigator.geolocation.getCurrentPosition(function(position) {
+          var lat = position.coords.latitude;
+          var lon = position.coords.longitude;
+          $('#lat').attr('value', lat);
+          $('#lon').attr('value', lon);
+        });
+
+        var token = $('#api-token').val();
+        $.ajaxSetup({
+          headers:{
+            "accept": "application/json",
+            "token": token
+        }
+        });
+
+        // rating model
+        var Rating = Backbone.Model.extend({
+          defaults: {
+            "mood": 5,
+            "comment": "whatevs",
+            "latitude": 90,
+            "longitude": 0
+
+          }
+        });
+
+        // collection of a user's ratings
+        var RatingCollection = Backbone.Collection.extend({
+        model: Rating,
+        url: '/api/ratings'
+        });
+
+
+        var ratings = new RatingCollection();
+
+
+
+        $('.create-rating').on('submit', function(e){
+          e.preventDefault();
+          var data = $(this).serializeJSON();
+          ratings.create(data.rating);
+          window.location.replace('/users/map_view')
+        });
+      }
 
 
       // #FF0000 1

@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  console.log("Slider time");
   setSlider();
 });
 function setSlider() {

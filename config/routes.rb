@@ -8,7 +8,7 @@ Rails.application.routes.draw do
     resources :ratings, except: [:new, :edit, :show]
   end
 
-    #Application/Session Routes
+    #Application Routes
   root 'welcome#index'
   get '/users/log_in' => 'users#log_in', as: :log_in
   get '/users/log_out' => 'users#log_out', as: :get_log_out
@@ -19,6 +19,8 @@ Rails.application.routes.draw do
   get '/users/edit' => 'users#edit', as: :edit
   get '/users/vibe' => 'users#new_rating', as: :new_rating
 
+
+    #Session Routes
   post '/sessions' => 'sessions#create'
   delete '/sessions' => 'sessions#destroy', as: :log_out
 

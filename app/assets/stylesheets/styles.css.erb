@@ -1,37 +1,93 @@
-.hiddenElements{
-  display: none;
-}
-.mapVibeButton {
-    position: absolute;
-    margin: -100px auto;
-    text-align: center;
-    width: 100%;
+
+html,body{
+  margin:0;
+  padding:0;
+  height:100%;
 }
 body{
-   font-family: 'Noto Sans', sans-serif;
- 	 margin:0;
-   width: 100%;
-   height: 100%;
-   background-color: #FF00A5;
+  margin:0;
+  width: 100%;
+  height: 100%;
+  background-color: #FF00A5;
+}
+.container {
+  background-image: url("/assets/CityScape2-244d4ace6d775296cb7ac99dce1e3e4ea85a7aba46563a08a3ab071ffb06a22d.jpg");
+  background-size: cover;
+  min-height:100%;
+  position:relative;
+  padding: 0;
+  margin: 0 auto;
+  height: 100%;
+}
+.greyContainer {
+    background-color: lightgrey;
+    background-size: cover;
+    min-height: 100%;
+    position: relative;
+    padding: 0;
+    margin: 0 auto;
+}
+header{
+  width:100%;
+  background:black;
+  height:50px;
+  line-height:50px;
+}
+.mainBody{
+  height: 100%;
+  padding-bottom: 10px;
+}
+.introImage{
+  background-size: 100%;
+}
+footer {
+  font-family: 'Poiret One', cursive;
+  color: #58D6FF;
+  position:absolute;
+  bottom:0;
+  width:100%;
+  height: 27px;   /* Height of the footer */
+  background:black;
+  padding: 5px;
+  text-align: center;
+  font-size: 10px;
+}
+.row {
+     margin-right: 0;
+     margin-left: 0;
+}
+.profileContainer{
 
- }
+}
+.formContainer {
+  padding-top: 45px;
+}
+
+.container-fluid{
+  padding: 0px;
+  height: 100%;
+  margin-right: auto;
+  margin-left: auto;
+}
+#map {
+  height: 100%;
+}
+
 
 form{
-    margin: 0px 20px;
-   font-family: 'Poiret One', cursive;
-
- }
+  margin: 0px 20px;
+  font-family: 'Poiret One', cursive;
+}
 input{
-   background-color: lightblue;
-   font-family: 'Poiret One', cursive;
-   width: 150px;
-   border: 1px solid black;
- }
+  background-color: lightblue;
+  font-family: 'Poiret One', cursive;
+  width: 150px;
+  border: 1px solid black;
+}
 label{
   font-size: 20px;
   width: 120px;
- }
-
+}
 a{
 
 }
@@ -44,99 +100,77 @@ a{
 .marginTop {
   margin-top: 15px;
 }
-
 .textAlignCenter{
   margin: 30px;
   text-align: center;
 }
 
-.container {
-  padding: 0;
-  margin: 0 auto;
-  position: relative;
-  background-color: lightgrey;
-}
-
-
-.backgroundImage {
-    background-image: url('<%= asset_path("CityScape.jpg") %>');
-    background-repeat: no-repeat;
-    height: 545px;
-}
-
-.header{
-	width:100%;
-	background:black;
-	height:50px;
-	line-height:50px;
-}
 .mainLogo{
-   color: #58D6FF;
-   display: inline-block;
-   font-family: 'Lobster', cursive;
-   font-size: 40px;
-   margin-left: 15px;
+  color: #58D6FF;
+  display: inline-block;
+  font-family: 'Lobster', cursive;
+  font-size: 40px;
+  margin-left: 15px;
 }
 .hamburger {
-    background: none;
-    float: right;
-    top: 0;
-    right: 0;
-    line-height: 45px;
-    padding: 0px 15px 0px 15px;
-    color: #58D6FF;
-    border: 0;
-    font-size: 35px;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none;
-    z-index: 10000000000000;
+  background: none;
+  float: right;
+  top: 0;
+  right: 0;
+  line-height: 45px;
+  padding: 0px 15px 0px 15px;
+  color: #58D6FF;
+  border: 0;
+  font-size: 35px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  z-index: 10000000000000;
 }
 .cross {
-    background: none;
-    float: right;
-    top: 0px;
-    right: 0;
-    padding: 0px 15px 0px 15px;
-    color: #58D6FF;
-    border: 0;
-    font-size: 95px;
-    line-height: 65px;
-    font-weight: bold;
-    cursor: pointer;
-    outline: none;
-    z-index: 10000000000000;
-    margin-top: 5px;
+  background: none;
+  float: right;
+  top: 0px;
+  right: 0;
+  padding: 0px 15px 0px 15px;
+  color: #58D6FF;
+  border: 0;
+  font-size: 95px;
+  line-height: 65px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: none;
+  z-index: 10000000000000;
+  margin-top: 5px;
+  margin-bottom: -25px;
 }
 .menu {
-    z-index: 1000000;
-    font-family: 'Poiret One', cursive;
-    width: 100%;
-    background: #131313;
-    position: absolute;
-    text-align: center;
+  z-index: 1000000;
+  font-family: 'Poiret One', cursive;
+  width: 100%;
+  background: #131313;
+  position: absolute;
+  text-align: center;
 }
 .menu ul {
-   margin: 0;
-   padding: 0;
-   list-style-type: none;
-   list-style-image: none;
+  margin: 0;
+  padding: 0;
+  list-style-type: none;
+  list-style-image: none;
 }
-
 .menu li {
-    display: block;
-    padding: 15px 0 15px 0;
-    border-bottom: lightblue 1px solid;
-    color: lightblue;
-    font-size: 20px;
+  display: block;
+  padding: 15px 0 15px 0;
+  border-bottom: lightblue 1px solid;
+  color: lightblue;
+  font-size: 20px;
 }
-
 .menu li:hover{
-   display: block;
-   background: #1d1f20;
-   color: lightblue;
-   padding:15px 0 15px 0;
-   border-bottom:lightblue 1px solid;
+  display: block;
+  background: #1d1f20;
+  color: lightblue;
+  padding:15px 0 15px 0;
+  border-bottom:lightblue 1px solid;
 }
 .menu ul li a {
   text-decoration:none;
@@ -155,12 +189,14 @@ a{
   text-decoration:none;
   color:white;
 }
-
 .buttonContainer {
-    text-align: center;
-    padding-top: 300px;
+  position: absolute;
+  bottom: 200px;
+  width: 100%;
+  height: 0;
+  background: black;
+  text-align: center;
 }
-
 .mainButton{
   background-color: #58D6FF;
   color: black;
@@ -171,17 +207,23 @@ a{
   border: 1px solid black;
   margin: 10px;
 }
-
+.hiddenElements{
+  display: none;
+}
+.mapVibeButton {
+  position: absolute;
+  margin: -10px auto;
+  text-align: center;
+  width: 100%;
+}
 .new_user {
   font-family: 'Poiret One', cursive;
 }
-
 #username{
   width: 35%;
   border-radius: 5px;
   background-color: white;
 }
-
 #password{
   width: 35%;
   border-radius: 5px;
@@ -242,21 +284,15 @@ a{
   background-color: white;
 }
 
-#map {
-  height: 400px;
-}
-
 .profile-image {
   width: 100px;
   border-radius: 10px;
 }
 
 /*Slider CSS*/
-
 .divCenter{
   margin: 0 -15px;
 }
-
 .ui-state-default,
 .ui-widget-content .ui-state-default,
 .ui-widget-header .ui-state-default {
@@ -307,7 +343,6 @@ a{
 	color: #212121;
 	text-decoration: none;
 }
-
 .ui-slider {
 	position: relative;
 	text-align: left;

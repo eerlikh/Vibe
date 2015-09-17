@@ -45,9 +45,12 @@
 
 
 
-  <div class="container">
+  <div class="<%= @changeClass || 'container' %>">
 
-    <div class='header'>
+
+
+
+    <header>
       <% if session[:user_id] %>
       <a href="/users/map_view"><div class='mainLogo'>Vibe</div></a>
       <% else %>
@@ -57,7 +60,7 @@
       <button class="hamburger">&#9776;</button>
       <button class="cross">&#735;</button>
 
-    </div>
+    </header>
 
     <div class="menu">
       <ul>
@@ -72,8 +75,11 @@
         <% end %>
       </ul>
     </div>
+      <%= yield %>
+    <footer>
+      Created by the Wandering Silence Team: Eduard Erlikh, Sam Schull, Matt Koski
+    </footer>
 
-    <%= yield %>
     <script type="text/javascript">
 
     $( ".cross" ).hide();
@@ -92,8 +98,8 @@
       });
     });
 
-
     </script>
+
   </div>
 </body>
 </html>

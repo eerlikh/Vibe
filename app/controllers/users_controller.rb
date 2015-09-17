@@ -19,6 +19,7 @@ class UsersController < ApplicationController
 #   new_user GET    /users/new(.:format)      users#new
 
   def new
+    @changeClass = "container"
     @user = User.new
   end
 

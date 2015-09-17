@@ -1,8 +1,13 @@
+                  // RUNS INIT AND SETSLIDER FUNCTIONS ON DOCUMENT READY
+
 $(document).ready(function() {
   console.log("Slider time");
   init();
   setSlider();
 });
+
+                  // CREATES JQUERY UI VERTICAL SLIDER
+
 function setSlider() {
   $( "#slider-range-max" ).slider({
     orientation: "vertical",
@@ -12,6 +17,26 @@ function setSlider() {
     value: 10,
     slide: function( event, ui ) {
       $( "#amount" ).val( ui.value );
+
+                  // SWITCH STATEMENT THAT CHANGES COLOR OF SLIDER DEPENDING ON MOOD RATING SET FROM RED TO GREEN
+
+                              /*
+
+                            mood - hexcode value
+
+                               0 - #BF1E2E
+                               1 - #EF4036
+                               2 - #F1592A
+                               3 - #F7941E
+                               4 - #FCB040
+                               5 - #F5EE31
+                               6 - #D7DF21
+                               7 - #8CC63F
+                               8 - #39B54A
+                               9 - #0B9444
+                              10 - #056839
+
+                               */
 
       var ratingColor = ui.value;
           switch (ratingColor) {
@@ -63,11 +88,12 @@ function setSlider() {
                $('.ui-slider-range').css( {"background-color": "grey"});
                $('.ui-widget-content').css( {"background-color": "grey"});
           }
-
           }
         });
         $( "#amount" ).val( $( "#slider-range-max" ).slider( "value" ) );
       };
+
+            // INIT FUNCTION GEOLOCATES USER TO DETERMINE CURRENT LOCATION AND PLACES TOKEN
 
       function init() {
         console.log('slider scripts loaded');
@@ -87,7 +113,8 @@ function setSlider() {
         }
         });
 
-        // rating model
+                      // RATING MODEL
+
         var Rating = Backbone.Model.extend({
           defaults: {
             "mood": 5,
@@ -98,16 +125,16 @@ function setSlider() {
           }
         });
 
-        // collection of a user's ratings
+                // COLLECTION OF USER RATINGS
+
         var RatingCollection = Backbone.Collection.extend({
         model: Rating,
         url: '/api/ratings'
         });
 
-
         var ratings = new RatingCollection();
 
-
+                // ON SUBMIT STORES RATING DATA AND CREATES RATING, SENDS USER TO MAP VIEW
 
         $('.create-rating').on('submit', function(e){
           e.preventDefault();
@@ -116,21 +143,3 @@ function setSlider() {
           window.location.replace('/users/map_view')
         });
       }
-
-      /*
-
-      mood - hexcode value
-
-       0 - #BF1E2E
-       1 - #EF4036
-       2 - #F1592A
-       3 - #F7941E
-       4 - #FCB040
-       5 - #F5EE31
-       6 - #D7DF21
-       7 - #8CC63F
-       8 - #39B54A
-       9 - #0B9444
-      10 - #056839
-
-       */

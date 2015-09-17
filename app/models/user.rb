@@ -1,3 +1,5 @@
+# creates user class model, has many relationship to ratings, generates token with bcrypt
+
 class User < ActiveRecord::Base
 
 has_secure_password

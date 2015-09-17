@@ -1,3 +1,5 @@
+# determines current user and authenticates that user
+
 module SessionsHelper
   def current_user
   if session[:user_id]

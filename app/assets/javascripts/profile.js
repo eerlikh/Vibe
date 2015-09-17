@@ -1,3 +1,5 @@
+              // RUNS INIT ON DOCUMENT READY
+
 $(document).ready(function() {
   init();
 });
@@ -5,6 +7,8 @@ $(document).ready(function() {
 function init() {
 
   console.log('profile scripts loaded');
+
+              // PLACES TOKEN
 
   var token = $('#api-token').val();
   $.ajaxSetup({
@@ -14,7 +18,8 @@ function init() {
   }
   });
 
-  // rating model
+            // RATING MODEL
+
   var Rating = Backbone.Model.extend({
     defaults: {
       "mood": 5,
@@ -25,7 +30,7 @@ function init() {
     }
   });
 
-  //views
+            // RATING BACKBONE VIEW, USES UNDERSCORE TEMPLATE TO RENDER
 
   var RatingView = Backbone.View.extend({
     tagName: 'tr',
@@ -45,6 +50,8 @@ function init() {
       this.$el.remove();
     }
   });
+
+          // RATING BACKBONE LIST VIEW, APPENDS VIEWS AND RENDERS, ALSO GRABS LOCATION
 
   var RatingListView = Backbone.View.extend({
     initialize: function(){
@@ -69,7 +76,8 @@ function init() {
     $('#lon').attr('value', lon);
   });
 
-  // collection of a user's ratings
+              // COLLECTION OF USER RATINGS IN RATINGS API
+
   var RatingCollection = Backbone.Collection.extend({
   model: Rating,
   url: '/api/ratings'

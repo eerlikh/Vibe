@@ -1,3 +1,5 @@
+# checks if user has a token, throws 401 if current user token is not found
+
 module Api::RatingsHelper
 
   def current_api_user!

@@ -1,17 +1,14 @@
+
+                          // GLOBAL VARIABLES
 var lat;
 var lon;
-
-
 var mapDisplay;
-
 var markers;
-
 var googleMarkers = [];
-
 var googleInfoWindows = [];
-
 var activeInfoWindows = [];
 
+                          // RUNS INIT IN DOCUMENT.READY
 
 $(document).ready(function() {
   init();
@@ -19,10 +16,7 @@ $(document).ready(function() {
 
 function init() {
 
-
-
   console.log('map scripts loaded');
-
 
   var token = $('#api-token').val();
   console.log(token);
@@ -33,7 +27,8 @@ function init() {
   }
   });
 
-  // rating model
+                          // RATING MODEL
+
   var Rating = Backbone.Model.extend({
     defaults: {
       "mood": 5,
@@ -44,7 +39,7 @@ function init() {
     }
   });
 
-  //views
+                          // RATING BACKBONE VIEW, USES UNDERSCORE TEMPLATE TO RENDER
 
   var RatingView = Backbone.View.extend({
     tagName: 'tr',
@@ -64,6 +59,9 @@ function init() {
       this.$el.remove();
     }
   });
+
+                          // RATING BACKBONE LIST VIEW, APPENDS VIEWS AND RENDERS
+                          // PUTS LATITIUDE, LONGITUDE, COMMENT AND MOOD INTO EMPTY MARKERS ARRAY
 
   var RatingListView = Backbone.View.extend({
     initialize: function(){
@@ -85,7 +83,8 @@ function init() {
     }
   });
 
-  // Collection of ALL user's ratings for display on map
+                          // COLLECTION OF ALL USER'S RATINGS FOR DISPLAY ON MAP
+
   var MapRatingCollection = Backbone.Collection.extend({
     model: Rating,
     url: '/api/ratings/map_ratings'
@@ -99,6 +98,11 @@ function init() {
   });
 
   mapRatings.fetch();
+
+                          // GETS CURRENT LOCATION USING GEOLOCATION,
+                          // ADDS LISTENER EVENT TO MAP THAT MAKES MARKERS
+                          // LOGS ERROR IF GEOLOCATION FAILS
+
   navigator.geolocation.getCurrentPosition(function(position) {
     console.log(position);
     lat = position.coords.latitude;
@@ -106,7 +110,6 @@ function init() {
 
     mapDisplay = initMap(lat, lon);
     console.log(markers);
-    //makeMarkers(markers);
 
     google.maps.event.addListenerOnce(mapDisplay, 'idle', function(){
       makeMarkers(markers);
@@ -119,7 +122,7 @@ function init() {
 
 }
 
-
+                          // CREATES GOOGLE MAP, DETERMINES ZOOM LEVEL, CENTERS ON CURRENT POSITION OF USER
 
 function initMap(lat, lon) {
     var map;
@@ -133,10 +136,12 @@ function initMap(lat, lon) {
         zoom: zoom
     });
 
-
-
     return map;
 }
+
+                          // MAKES MARKERS, PLACES MESSAGE AND MOOD INDEXES OF MARKER ARRAY INTO VARIABLES
+                          // CREATES GOOGLE MAP INFO WINDOWS
+                          // PLACES VARIABLES INTO INFO WINDOW CONTENT
 
 function makeMarkers(markers) {
   for(var i = 0; i < markers.length; i++) {
@@ -151,7 +156,29 @@ function makeMarkers(markers) {
       content: contentString
     });
 
+                          // PUSHES NEWLY CREATED INFO WINDOW INTO ARRAY
+
     googleInfoWindows.push(infowindow);
+
+                          // SWITCH STATEMENT THAT PLACES CUSTOM MARKERS DEPENDING ON MATCHING MOOD RATING
+
+                          /*
+
+                          HEXCODE VALUES OF CUSTOM MARKERS
+
+                          Mood00.png - #BF1E2E
+                          Mood01.png - #EF4036
+                          Mood02.png - #F1592A
+                          Mood03.png - #F7941E
+                          Mood04.png - #FCB040
+                          Mood05.png - #F5EE31
+                          Mood06.png - #D7DF21
+                          Mood07.png - #8CC63F
+                          Mood08.png - #39B54A
+                          Mood09.png - #0B9444
+                          Mood10.png - #056839
+
+                           */
 
     var iconFileName;
 
@@ -191,12 +218,16 @@ function makeMarkers(markers) {
         break;
     }
 
+                          // CREATES NEW MARKER AND PLACES CUSTOM MARKER DEPENDING ON USER MOOD
+
     var newMarker = new google.maps.Marker({
       position: {lat: loc[0], lng: loc[1]},
       map: mapDisplay,
       icon: iconFileName
 
     });
+
+                          // PUSHES NEW MARKERS INTO EMPTY ARRAY
 
     googleMarkers.push(newMarker)
 
@@ -208,8 +239,12 @@ function makeMarkers(markers) {
   console.log(googleInfoWindows);
   console.log(googleMarkers);
 
+                          // CALLS ADDINFOWINDOWLISTENERS FUNCTION DEFINED BELOW
+
   addInfoWindowListeners();
 }
+
+                          // ASSIGNS INFO WINDOWS TO PROPER MARKER BY WAY OF ADDINFO FUNCTION
 
 function addInfoWindowListeners() {
   for(var i = 0; i < googleInfoWindows.length; i++) {
@@ -221,6 +256,10 @@ function addInfoWindowListeners() {
   }
 }
 
+                          // ON MARKER CLICK, ADDS MARKER LISTENER THAT CLEARS INFO WINDOW
+                          // AND OPENS INFO WINDOW ON CLICKED MARKER
+                          // PLACES INFO WINDOW AS INDEX IN EMPTY ACTIVE INFO WINDOW ARRAY
+
 function addInfo(marker, infoWindow) {
   marker.addListener('click', function() {
     clearInfo();
@@ -230,6 +269,10 @@ function addInfo(marker, infoWindow) {
   });
 }
 
+                          // ONLY ALLOWS ONE INFO WINDOW TO BE SHOWN AT A TIME
+                          // IF NEW MARKER IS CLICKED AFTER PREVIOUS MARKER DISPLAYS INFO WINDOW,
+                          // WILL CLOSE PREVIOUS INFO WINDOW AND OPEN NEWLY CLICKED MARKER'S INFO WINDOW
+
 function clearInfo() {
   if(activeInfoWindows.length > 0) {
     activeInfoWindows[0].set("marker", null);
@@ -237,21 +280,3 @@ function clearInfo() {
     activeInfoWindows.length = 0;
   }
 }
-
-/*
-
-mood - hexcode value
-
- 0 - #BF1E2E
- 1 - #EF4036
- 2 - #F1592A
- 3 - #F7941E
- 4 - #FCB040
- 5 - #F5EE31
- 6 - #D7DF21
- 7 - #8CC63F
- 8 - #39B54A
- 9 - #0B9444
-10 - #056839
-
- */

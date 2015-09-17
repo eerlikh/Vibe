@@ -43,7 +43,10 @@
 
 
 
-  <div class="container">
+  <div class="<%= @changeClass || 'container' %>">
+
+
+
 
     <header>
       <% if session[:user_id] %>
@@ -70,9 +73,7 @@
         <% end %>
       </ul>
     </div>
-    <div class="mainBody">
       <%= yield %>
-    </div>
     <footer>
       Created by the Wandering Silence Team: Eduard Erlikh, Sam Schull, Matt Koski
     </footer>
@@ -96,7 +97,7 @@
     });
 
     </script>
-    
+
   </div>
 </body>
 </html>

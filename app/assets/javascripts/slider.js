@@ -7,7 +7,7 @@ function setSlider() {
   $( "#slider-range-max" ).slider({
     orientation: "vertical",
     range: "min",
-    min: 1,
+    min: 0,
     max: 10,
     value: 10,
     slide: function( event, ui ) {

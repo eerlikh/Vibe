@@ -9,6 +9,7 @@ class UsersController < ApplicationController
   #          POST   /users(.:format)          users#create
   def create
     @user = User.new(user_params)
+    @user.image_url = params[:image_url] || "http://www.clipartbest.com/cliparts/4ib/Kz7/4ibKz78KT.gif"
     @user.save
     redirect_to log_in_path
   end
@@ -67,7 +68,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :email, :address, :city, :state, :zip, :password, :password_confirm)
+    params.require(:user).permit(:username, :first_name, :last_name, :email, :address, :city, :state, :zip, :password, :password_confirm, :image_url)
   end
 
 

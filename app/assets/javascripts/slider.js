@@ -18,6 +18,7 @@ function setSlider() {
              case 0:
                $('.ui-slider-range').css( {"background-color": "#BF1E2E"});
                $('.ui-widget-content').css( {"background-color": "#BF1E2E"});
+               break;
              case 1:
                $('.ui-slider-range').css( {"background-color": "#EF4036"});
                $('.ui-widget-content').css( {"background-color": "#EF4036"});
@@ -116,14 +117,20 @@ function setSlider() {
         });
       }
 
+      /*
 
-      // #FF0000 1
-      // #FF3300 2
-      // #FF6600 3
-      // #FFAA00 4
-      // #FFFF00 5
-      // #CCFF00 6
-      // #99FF00 7
-      // #66FF00 8
-      // #33FF00 9
-      // #00FF00 10
+      mood - hexcode value
+
+       0 - #BF1E2E
+       1 - #EF4036
+       2 - #F1592A
+       3 - #F7941E
+       4 - #FCB040
+       5 - #F5EE31
+       6 - #D7DF21
+       7 - #8CC63F
+       8 - #39B54A
+       9 - #0B9444
+      10 - #056839
+
+       */

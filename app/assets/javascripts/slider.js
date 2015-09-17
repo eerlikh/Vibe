@@ -15,45 +15,49 @@ function setSlider() {
 
       var ratingColor = ui.value;
           switch (ratingColor) {
+             case 0:
+               $('.ui-slider-range').css( {"background-color": "#BF1E2E"});
+               $('.ui-widget-content').css( {"background-color": "#BF1E2E"});
+               break;
              case 1:
-               $('.ui-slider-range').css( {"background-color": "#FF0000"});
-               $('.ui-widget-content').css( {"background-color": "#FF0000"});
+               $('.ui-slider-range').css( {"background-color": "#EF4036"});
+               $('.ui-widget-content').css( {"background-color": "#EF4036"});
                break;
              case 2:
-               $('.ui-slider-range').css( {"background-color": "#FF3300"});
-               $('.ui-widget-content').css( {"background-color": "#FF3300"});
+               $('.ui-slider-range').css( {"background-color": "#F1592A"});
+               $('.ui-widget-content').css( {"background-color": "#F1592A"});
                break;
              case 3:
-               $('.ui-slider-range').css( {"background-color": "#FF6600"});
-               $('.ui-widget-content').css( {"background-color": "#FF6600"});
+               $('.ui-slider-range').css( {"background-color": "#F7941E"});
+               $('.ui-widget-content').css( {"background-color": "#F7941E"});
                break;
              case 4:
-               $('.ui-slider-range').css( {"background-color": "#FFAA00"});
-               $('.ui-widget-content').css( {"background-color": "#FFAA00"});
+               $('.ui-slider-range').css( {"background-color": "#FCB040"});
+               $('.ui-widget-content').css( {"background-color": "#FCB040"});
                break;
              case 5:
-               $('.ui-slider-range').css( {"background-color": "#FFFF00"});
-               $('.ui-widget-content').css( {"background-color": "#FFFF00"});
+               $('.ui-slider-range').css( {"background-color": "#F5EE31"});
+               $('.ui-widget-content').css( {"background-color": "#F5EE31"});
                break;
              case 6:
-               $('.ui-slider-range').css( {"background-color": "#CCFF00"});
-               $('.ui-widget-content').css( {"background-color": "#CCFF00"});
+               $('.ui-slider-range').css( {"background-color": "#D7DF21"});
+               $('.ui-widget-content').css( {"background-color": "#D7DF21"});
                break;
              case 7:
-               $('.ui-slider-range').css( {"background-color": "#99FF00"});
-               $('.ui-widget-content').css( {"background-color": "#99FF00"});
+               $('.ui-slider-range').css( {"background-color": "#8CC63F"});
+               $('.ui-widget-content').css( {"background-color": "#8CC63F"});
                break;
              case 8:
-               $('.ui-slider-range').css( {"background-color": "#66FF00"});
-               $('.ui-widget-content').css( {"background-color": "#66FF00"});
+               $('.ui-slider-range').css( {"background-color": "#39B54A"});
+               $('.ui-widget-content').css( {"background-color": "#39B54A"});
                break;
              case 9:
-               $('.ui-slider-range').css( {"background-color": "#33FF00"});
-               $('.ui-widget-content').css( {"background-color": "#33FF00"});
+               $('.ui-slider-range').css( {"background-color": "#0B9444"});
+               $('.ui-widget-content').css( {"background-color": "#0B9444"});
                break;
              case 10:
-               $('.ui-slider-range').css( {"background-color": "#00FF00"});
-               $('.ui-widget-content').css( {"background-color": "#00FF00"});
+               $('.ui-slider-range').css( {"background-color": "#056839"});
+               $('.ui-widget-content').css( {"background-color": "#056839"});
                break;
              default:
                $('.ui-slider-range').css( {"background-color": "grey"});
@@ -113,14 +117,20 @@ function setSlider() {
         });
       }
 
+      /*
 
-      // #FF0000 1
-      // #FF3300 2
-      // #FF6600 3
-      // #FFAA00 4
-      // #FFFF00 5
-      // #CCFF00 6
-      // #99FF00 7
-      // #66FF00 8
-      // #33FF00 9
-      // #00FF00 10
+      mood - hexcode value
+
+       0 - #BF1E2E
+       1 - #EF4036
+       2 - #F1592A
+       3 - #F7941E
+       4 - #FCB040
+       5 - #F5EE31
+       6 - #D7DF21
+       7 - #8CC63F
+       8 - #39B54A
+       9 - #0B9444
+      10 - #056839
+
+       */

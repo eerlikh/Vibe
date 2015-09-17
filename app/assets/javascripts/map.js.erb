@@ -117,8 +117,6 @@ function init() {
     lon =  -73.965431;
   });
 
-
-
 }
 
 
@@ -178,7 +176,7 @@ function makeMarkers(markers) {
         break;
       case 6:
         iconFileName = "<%= asset_path("Mood06.png") %>"
-        break; 
+        break;
       case 7:
         iconFileName = "<%= asset_path("Mood07.png") %>"
         break;
@@ -239,3 +237,21 @@ function clearInfo() {
     activeInfoWindows.length = 0;
   }
 }
+
+/*
+
+mood - hexcode value
+
+ 0 - #BF1E2E
+ 1 - #EF4036
+ 2 - #F1592A
+ 3 - #F7941E
+ 4 - #FCB040
+ 5 - #F5EE31
+ 6 - #D7DF21
+ 7 - #8CC63F
+ 8 - #39B54A
+ 9 - #0B9444
+10 - #056839
+
+ */

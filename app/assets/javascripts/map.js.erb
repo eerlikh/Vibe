@@ -155,9 +155,49 @@ function makeMarkers(markers) {
 
     googleInfoWindows.push(infowindow);
 
+    var iconFileName;
+
+    switch (mood) {
+      case 0:
+        iconFileName = "<%= asset_path("Mood00.png") %>"
+        break;
+      case 1:
+        iconFileName = "<%= asset_path("Mood01.png") %>"
+        break;
+      case 2:
+        iconFileName = "<%= asset_path("Mood02.png") %>"
+        break;
+      case 3:
+        iconFileName = "<%= asset_path("Mood03.png") %>"
+        break;
+      case 4:
+        iconFileName = "<%= asset_path("Mood04.png") %>"
+        break;
+      case 5:
+        iconFileName = "<%= asset_path("Mood05.png") %>"
+        break;
+      case 6:
+        iconFileName = "<%= asset_path("Mood06.png") %>"
+        break; 
+      case 7:
+        iconFileName = "<%= asset_path("Mood07.png") %>"
+        break;
+      case 8:
+        iconFileName = "<%= asset_path("Mood08.png") %>"
+        break;
+      case 9:
+        iconFileName = "<%= asset_path("Mood09.png") %>"
+        break;
+      case 10:
+        iconFileName = "<%= asset_path("Mood10.png") %>"
+        break;
+    }
+
     var newMarker = new google.maps.Marker({
       position: {lat: loc[0], lng: loc[1]},
-      map: mapDisplay
+      map: mapDisplay,
+      icon: iconFileName
+
     });
 
     googleMarkers.push(newMarker)

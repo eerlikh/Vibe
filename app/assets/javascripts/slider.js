@@ -113,7 +113,7 @@ function setSlider() {
           e.preventDefault();
           var data = $(this).serializeJSON();
           ratings.create(data.rating);
-          window.location.replace('/users/map_view')
+          // window.location.replace('/users/map_view')
         });
       }
 

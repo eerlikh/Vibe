@@ -1,3 +1,25 @@
+<div class="greyContainer">
+
+
 <!-- Renders form partial -->
 
 <%= render 'form' %>
+
+  <div id="modal-background">
+    <div id="error-modal">
+      <h2>Error!</h2>
+      <h4>These are the things you might have done wrong:</h4>
+        <ul>
+          <li>Username already taken. Please try a different user name.</li>
+          <li>Looks like your passwords didn't match. Please confirm and try again.</li>
+        </ul>
+        <button id="modal-close-button">OK</button>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $('#modal-close-button').on('click', function() {
+    $('#modal-background').hide();
+  });
+</script>

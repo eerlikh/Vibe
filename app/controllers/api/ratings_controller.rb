@@ -20,7 +20,7 @@ end
 
 def create
   rating = @current_user.ratings.create(ratings_params)
-  render json: rating
+  redirect_to map_view_path
 end
 
 #    POST   /api/ratings(.:format)             api/ratings#create

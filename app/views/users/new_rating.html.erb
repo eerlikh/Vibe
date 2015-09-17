@@ -1,10 +1,13 @@
 <!-- Displays slider and comment text area with a button to make your vibe, sends you to map view -->
 
 <input type="hidden" id='api-token' value="<%= @user.token %>">
+
 <script type="text/javascript" src="<%= asset_path("slider.js") %>"></script>
 
 <form class="create-rating" action="/api/ratings" method="post">
-
+  <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
+  <!-- <%= hidden_field_tag :authenticity_token, form_authenticity_token %> -->
+  <input type="hidden" name='token' value="<%= @user.token %>">
 
     <!-- <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
       <label for="amount">Mood Rating:</label>

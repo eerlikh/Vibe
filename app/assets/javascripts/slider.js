@@ -18,6 +18,7 @@ function setSlider() {
     slide: function( event, ui ) {
       $( "#amount" ).val( ui.value );
 
+
                   // SWITCH STATEMENT THAT CHANGES COLOR OF SLIDER DEPENDING ON MOOD RATING SET FROM RED TO GREEN
 
                               /*
@@ -134,12 +135,15 @@ function setSlider() {
 
         var ratings = new RatingCollection();
 
-                // ON SUBMIT STORES RATING DATA AND CREATES RATING, SENDS USER TO MAP VIEW
 
+                // ON SUBMIT STORES RATING DATA AND CREATES RATING, SENDS USER TO MAP VIEW
+                // NOT CURRENTLY USED.  INPUT HANDLED THROUGH REGULAR HTML POST REQUEST FROM FORM
+
+      /*
         $('.create-rating').on('submit', function(e){
           e.preventDefault();
           var data = $(this).serializeJSON();
           ratings.create(data.rating);
-          window.location.replace('/users/map_view')
-        });
+          // window.location.replace('/users/map_view')
+        }); */
       }

@@ -1,3 +1,16 @@
+/*-------------------------------\
+|   Table of Contents:           |
+|                                |
+|   General Tags                 |
+|   Header Tags                  |
+|   Form Tags                    |
+|                                |
+\--------------------------------*/
+
+
+
+
+/*General Tags*/
 
 html,body{
   margin:0;
@@ -17,19 +30,34 @@ body{
   position:relative;
   padding: 0;
   margin: 0 auto;
+}
+.formContainer {
+  position: relative;
+  width: 75%;
+  background-color: lightgrey;
+  background-size: cover;
+  padding: 0;
+  margin: 0 auto;
+}
+.superContainer{
+  background-image: url("/assets/CityScape2-244d4ace6d775296cb7ac99dce1e3e4ea85a7aba46563a08a3ab071ffb06a22d.jpg");
+  background-size: cover;
+  min-height:100%;
+  position:relative;
+  padding: 0;
+  margin: 0 auto;
   height: 100%;
 }
-.greyContainer {
-    background-color: lightgrey;
-    background-size: cover;
-    min-height: 100%;
-    position: relative;
-    padding: 0;
-    margin: 0 auto;
+
+.mainBody{
+  height: 100%;
+  padding-bottom: 10px;
 }
+
 
 #modal-background {
   position: absolute;
+  display: none;
   top: 0;
   right: 0;
   bottom: 0;
@@ -39,6 +67,7 @@ body{
 
 #error-modal {
   position: absolute;
+  display: none;
   top: 25%;
   right: 25%;
   bottom: 25%;
@@ -57,6 +86,12 @@ body{
   margin-right: auto;
   margin-top: 15px;
 }
+
+
+.introImage{
+  background-size: 100%;
+}
+/*Header Tags*/
 
 header{
   width:100%;
@@ -94,11 +129,13 @@ footer {
   padding-top: 45px;
 }
 
-.container-fluid{
+.container-fluid {
   padding: 0px;
   height: 100%;
   margin-right: auto;
   margin-left: auto;
+  margin-top: -50px;
+  border-top: 50px solid black;
 }
 #map {
   height: 100%;
@@ -243,9 +280,7 @@ a{
 }
 .mapVibeButton {
   position: absolute;
-  margin: -10px auto;
-  text-align: center;
-  width: 100%;
+  margin: -105px auto;
 }
 .new_user {
   font-family: 'Poiret One', cursive;
@@ -309,6 +344,13 @@ a{
   background-color: white;
   }
 #user_zip{
+  float: left;
+  width: 85%;
+  border-radius: 5px;
+  background-color: white;
+}
+
+#user_image_url{
   float: left;
   width: 85%;
   border-radius: 5px;

@@ -3,7 +3,7 @@
 <input type="hidden" id='api-token' value="<%= @user.token %>">
 
 <script type="text/javascript" src="<%= asset_path("slider.js") %>"></script>
-
+<div class="formContainer">
 <form class="create-rating" action="/api/ratings" method="post">
   <%= tag(:input, :type => "hidden", :name => request_forgery_protection_token.to_s, :value => form_authenticity_token) %>
   <!-- <%= hidden_field_tag :authenticity_token, form_authenticity_token %> -->
@@ -38,7 +38,7 @@
   </div>
 
 </form>
-
+</div>
 
 <!--
 <form class="create-rating" action="/api/ratings" method="post">

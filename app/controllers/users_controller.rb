@@ -12,9 +12,9 @@ class UsersController < ApplicationController
 
  def validate_username
    if User.exists?(:username => user_params['username'])
-     render json: { "valid": false }
+     render json: { "valid" => false }
    else
-     render json: { "valid": true }
+     render json: { "valid" => true }
    end
 
  end

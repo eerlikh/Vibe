@@ -19,7 +19,6 @@ class UsersController < ApplicationController
 #   new_user GET    /users/new(.:format)      users#new
 
   def new
-    @changeClass = "container"
     @user = User.new
   end
 
@@ -78,6 +77,7 @@ class UsersController < ApplicationController
 
   def map_view
     return nil unless authenticate!
+    @changeClass = "superContainer"
     @user = current_user
     @ratings = Rating.all
     #render layout: "map_layout"

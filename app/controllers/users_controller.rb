@@ -58,6 +58,7 @@ class UsersController < ApplicationController
   def update
     @user = User.find(params[:id])
     @user.update(user_params)
+    puts(@user.errors.full_messages)
     redirect_to user_profile_path
   end
 

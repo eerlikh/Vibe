@@ -1,3 +1,33 @@
+<div class="formContainer">
+
+
 <!-- Renders form partial -->
 
 <%= render 'form' %>
+
+  <div id="modal-background">
+    <div id="error-modal">
+      <h2>Error!</h2>
+      <h4>These are the things you might have done wrong:</h4>
+        <ul>
+          <li id="username-taken">Username already taken. Please try a different user name.</li>
+          <li id="no-password-match">Looks like your passwords didn't match. Please confirm and try again.</li>
+        </ul>
+        <button id="modal-close-button">OK</button>
+    </div>
+  </div>
+</div>
+
+<%= puts "<=j $('#user_username').val() =>" %>
+
+  <script type="text/javascript">
+
+    $()
+
+
+
+
+    $('#modal-close-button').on('click', function() {
+      $('#modal-background').hide();
+    });
+  </script>

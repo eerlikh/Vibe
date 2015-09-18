@@ -32,6 +32,7 @@ body{
   margin: 0 auto;
 }
 .formContainer {
+  position: relative;
   width: 75%;
   background-color: lightgrey;
   background-size: cover;
@@ -52,10 +53,46 @@ body{
   height: 100%;
   padding-bottom: 10px;
 }
+
+
+#modal-background {
+  position: absolute;
+  display: none;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+#error-modal {
+  position: absolute;
+  display: none;
+  top: 25%;
+  right: 25%;
+  bottom: 25%;
+  left: 25%;
+  background-color: lightgrey;
+  border: 5px solid red;
+  border-radius: 4px;
+  padding: 15px;
+}
+
+#modal-close-button {
+  width: 100px;
+  height: 65px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 15px;
+}
+
+
 .introImage{
   background-size: 100%;
 }
 /*Header Tags*/
+
 header{
   width:100%;
   background:black;

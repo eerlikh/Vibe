@@ -7,13 +7,32 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
+
+#   validate username
+
+ def validate_username
+   @user = User.new(user_params)
+   if User.exists?(:username => @user.username)
+     render json: { "valid": false }
+   else
+     render json: { "valid": true }
+   end
+ end
+
+
+
 #   POST   /users(.:format)          users#create
 
   def create
     @user = User.new(user_params)
     @user.image_url = params[:image_url] || "http://www.clipartbest.com/cliparts/4ib/Kz7/4ibKz78KT.gif"
     @user.save
-    redirect_to log_in_path
+
+    if @user.errors.any?
+      render json: @user
+    else
+      redirect_to log_in_path
+    end
   end
 
 #   new_user GET    /users/new(.:format)      users#new

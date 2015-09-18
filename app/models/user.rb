@@ -6,7 +6,7 @@ has_secure_password
 
 has_many :ratings
 
-validates :username, uniqueness: { case_sensitive: true, message: "user name already taken" }
+# validates :username, uniqueness: { case_sensitive: true, message: "user name already taken" }
 
 validates :password, confirmation: true
 validates :password_confirmation, presence: true

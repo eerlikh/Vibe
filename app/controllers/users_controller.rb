@@ -11,12 +11,12 @@ class UsersController < ApplicationController
 #   validate username
 
  def validate_username
-   @user = User.new(user_params)
-   if User.exists?(:username => @user.username)
+   if User.exists?(:username => user_params['username'])
      render json: { "valid": false }
    else
      render json: { "valid": true }
    end
+
  end
 
 
@@ -27,12 +27,9 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     @user.image_url = params[:image_url] || "http://www.clipartbest.com/cliparts/4ib/Kz7/4ibKz78KT.gif"
     @user.save
+    puts(@user.errors.full_messages)
 
-    if @user.errors.any?
-      render json: @user
-    else
-      redirect_to log_in_path
-    end
+    redirect_to log_in_path
   end
 
 #   new_user GET    /users/new(.:format)      users#new
@@ -107,7 +104,7 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:username, :first_name, :last_name, :email, :address, :city, :state, :zip, :password, :password_confirm, :image_url)
+    params.require(:user).permit(:username, :first_name, :last_name, :email, :address, :city, :state, :zip, :password, :password_confirmation, :image_url)
   end
 
 end

@@ -18,16 +18,35 @@
   </div>
 </div>
 
-<%= puts "<=j $('#user_username').val() =>" %>
-
   <script type="text/javascript">
 
-    $()
+    $('#user_username').on('focusout', function() {
+      console.log("Focussed out!");
+      var dataSend = $('#new_user').serializeJSON();
+      console.log(dataSend);
+      $.post('/users/validate_username', $('#new_user').serializeJSON(), function(result) {
+        console.log(result);
+        if(result.valid == false) {
+          $('#modal-background').show();
+          $('#error-modal').show();
+          $('#username-taken').show();
+        }
+      });
+    });
 
-
+    $('#user_password_confirmation').on('focusout', function() {
+      if($('#user_password').val() !== $('#user_password_confirmation').val()) {
+        $('#modal-background').show();
+        $('#error-modal').show();
+        $('#no-password-match').show();
+      }
+    });
 
 
     $('#modal-close-button').on('click', function() {
       $('#modal-background').hide();
+      $('#error-modal').hide();
+      $('#username-taken').hide();
+      $('#no-password-match').hide();
     });
   </script>

@@ -1,5 +1,5 @@
 
-<!-- <div class="formContainer"> -->
+<!-- <div class="formContainer"> MOVED TO new.html.erb -->
 
 <!-- Form Partial that contains input fields for all user information -->
 <%= form_for @user do |f| %>
@@ -25,14 +25,15 @@
   </div>
 </div>
 
+
 <div class="row marginTop">
   <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
     <%= f.label :email, "Email:" %>
     <%= f.text_field :email %>
   </div>
-  <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
-    <%= f.label :password, "Confirm PW:"%>
-    <%= f.text_field :password %>
+  <div class="col-xs-6 col-sm-6 col-md-5 col-lg-4">
+    <%= f.label :password_confimation, "Confirm PW:"%>
+    <%= f.text_field :password_confirmation %>
   </div>
 </div>
 
@@ -76,4 +77,4 @@
   </div>
 </div>
 <% end %>
-<!-- </div> -->
+<!-- </div> MOVED TO new.html.erb -->
